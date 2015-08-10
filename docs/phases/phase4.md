@@ -2,19 +2,22 @@
 
 ## Rails
 ### Models
+* SongComment
 
 ### Controllers
-Api::PostsController (feed)
+* SongComments
 
 ### Views
-posts/feed.json.jbuilder
+comments.json.jbuilder
 
 ## Backbone
 ### Models
+* comment
 
 ### Collections
+* comments
 
 ### Views
-* FeedShow (composite view, contains PostsIndex subview)
+* Fix Show song view to add comments.
 
 ## Gems/Libraries

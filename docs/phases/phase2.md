@@ -4,26 +4,26 @@
 ### Models
 
 ### Controllers
-Api::BlogsController (create, destroy, index, show)
-Api::PostsController (create, destroy, show, update)
+Api::SongsController (create, destroy, index, show)
+Api::LinesController (create, destroy, index, update)
 
 ### Views
-* blogs/show.json.jbuilder
+* lines/show.json.jbuilder
 
 ## Backbone
 ### Models
-* Blog (parses nested `posts` association)
-* Post
+* Song (parses nested `lines` association)
+* Line
 
 ### Collections
-* Blogs
-* Posts
+* Songs
+* Lines
 
 ### Views
-* BlogForm
-* BlogShow (composite view, contains PostsIndex subview)
-* PostsIndex (composite view, contains PostsIndexItem subviews)
-* PostsIndexItem
-* PostShow
+* SongForm
+* SongShow (composite view, contains LinesIndex subview)
+* LinesIndex (composite view, contains LinesIndexItem subviews)
+* LinesIndexItem
+* LineInterpretationShow
 
 ## Gems/Libraries

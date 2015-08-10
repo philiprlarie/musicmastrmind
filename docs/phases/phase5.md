@@ -4,8 +4,6 @@
 ### Models
 
 ### Controllers
-Api::BlogsController (search)
-Api::PostsController (search)
 
 ### Views
 
@@ -15,8 +13,11 @@ Api::PostsController (search)
 ### Collections
 
 ### Views
-* BlogSearchItem
-* SearchShow (composite view, contains BlogsIndex and PostsIndex subviews)
+* Add better CSS to the different views.
+* Song Show View
+* Artist Index
+* Genre Index
+* Landing Page
+* etc.
 
 ## Gems/Libraries
-

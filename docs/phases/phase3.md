@@ -2,20 +2,29 @@
 
 ## Rails
 ### Models
+* Genre
+* GenreTagging
+* Artist
 
 ### Controllers
+* Genres
+* Artists
 
 ### Views
+* ArtistsIndex
+* GenreIndex
 
 ## Backbone
 ### Models
+* Artist
+* Genre
 
 ### Collections
+* ArtistSongs
+* GenreSongs
 
 ### Views
-* PostForm
+* Artist Index
+* Genre Index
 
 ## Gems/Libraries
-* Filepicker
-* Markdown-js
-* Bootstrap Markdown
