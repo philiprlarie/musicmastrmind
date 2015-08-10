@@ -3,24 +3,20 @@
 ## New Session
 ![new-session]
 
-## Feed Show (landing page)
-![feed-show]
+## Landing Page
+![landing-page]
 
-## Blog Show
-![blog-show]
+## Song Show
+![song-show]
 
-## Post Show
-![post-show]
+## New Song
+![new-song]
 
 ## Post Form
-![post-form]
+![find-by-artist]
 
-## Search Results
-![search-results]
-
-[new-session]: ./wireframes/new_session.png
-[feed-show]: ./wireframes/feed_show.png
-[blog-show]: ./wireframes/blog_show.png
-[post-show]: ./wireframes/post_show.png
-[post-form]: ./wireframes/post_form.png
-[search-results]: ./wireframes/search_results.png
+[new-session]: ./wireframes/sign_in.jpg
+[landing-page]: ./wireframes/landing.jpg
+[song-show]: ./wireframes/song_show.jpg
+[new-song]: ./wireframes/new_song.jpg
+[find-by-artist]: ./wireframes/find_by_artist.jpg

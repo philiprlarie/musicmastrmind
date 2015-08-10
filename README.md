@@ -1,4 +1,4 @@
-# Flux-capacitr
+# MusicMastrMind
 
 [Heroku link][heroku]
 
