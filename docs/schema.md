@@ -25,7 +25,7 @@ track_number| integer   | not null, unique (in album)
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-body        | string    | not null
+body        | text      | not null
 order       | integer   | not null, unique (in song)
 song_id     | integer   | not null, foreign key
 
