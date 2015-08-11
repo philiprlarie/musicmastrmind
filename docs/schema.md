@@ -19,6 +19,7 @@ writer      | string    |
 creator_id  | integer   | not null, foreign key (references users)
 artist_id   | integer   | not null, foreign key
 album_id    | integer   | not null, foreign key
+track_number| integer   | not null, unique (in album)
 
 ## line
 column name | data type | details
@@ -35,24 +36,6 @@ id          | integer   | not null, primary key
 body        | string    | not null
 line_id     | integer   | not null, foreign key
 creator_id  | integer   | not null, foreign key (references users)
-
-## song_comments
-column name | data type | details
--------------------|-----------|-----------------------
-id                 | integer   | not null, primary key
-body               | string    | not null
-user_id            | integer   | not null, foreign key
-song_id            | integer   | not null, foreign key
-parent_comment_id  | integer   | self referential key
-
-## line_comments
-column name | data type | details
--------------------|-----------|-----------------------
-id                 | integer   | not null, primary key
-body               | string    | not null
-user_id            | integer   | not null, foreign key
-line_id            | integer   | not null, foreign key
-parent_comment_id  | integer   | self referential key
 
 ## artists
 column name | data type | details
@@ -81,3 +64,21 @@ column name | data type | details
 id          | integer   | not null, primary key
 song_id     | integer   | not null, foreign key (references posts)
 genre_id    | integer   | not null, foreign key (references tags)
+
+## song_comments
+column name | data type | details
+-------------------|-----------|-----------------------
+id                 | integer   | not null, primary key
+body               | string    | not null
+user_id            | integer   | not null, foreign key
+song_id            | integer   | not null, foreign key
+parent_comment_id  | integer   | self referential key
+
+## line_comments
+column name | data type | details
+-------------------|-----------|-----------------------
+id                 | integer   | not null, primary key
+body               | string    | not null
+user_id            | integer   | not null, foreign key
+line_id            | integer   | not null, foreign key
+parent_comment_id  | integer   | self referential key

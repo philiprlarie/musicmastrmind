@@ -6,6 +6,19 @@ class User < ActiveRecord::Base
   after_initialize :ensure_session_token
   attr_reader :password
 
+  has_many :created_songs,
+    class_name: :Song,
+    foreign_key: :creator_id
+
+  # has_many :line_interpretations
+  # has_many :song_comments
+  # has_many :line_comments
+
+
+
+
+
+
   def self.find_by_credentials(username_email, password)
     user_by_username = User.find_by(username: username_email)
     if user_by_username && user_by_username.is_password?(password)
