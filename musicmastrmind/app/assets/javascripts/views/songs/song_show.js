@@ -6,7 +6,6 @@ MusicMastrMind.Views.SongShow = Backbone.View.extend({
   template: JST['songs/show'],
 
   render:  function () {
-    debugger
     var content = this.template({ song: this.model });
     this.$el.html(content);
     return this;

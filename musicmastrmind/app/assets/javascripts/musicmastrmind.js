@@ -4,13 +4,16 @@ window.MusicMastrMind = {
   Views: {},
   Routers: {},
   initialize: function() {
-    new MusicMastrMind.Routers.Router({
+
+    var router = new MusicMastrMind.Routers.Router({
       $rootEl: $('#content')
     });
     Backbone.history.start();
+
+    var nav = new MusicMastrMind.Views.Navbar({
+      router: router
+    });
+    $('#navbar').html(nav.$el);
+    nav.render();
   }
 };
-
-$(document).ready(function(){
-  MusicMastrMind.initialize();
-});

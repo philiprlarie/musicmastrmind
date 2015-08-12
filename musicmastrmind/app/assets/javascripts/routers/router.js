@@ -5,6 +5,7 @@ MusicMastrMind.Routers.Router = Backbone.Router.extend({
   },
 
   routes: {
+    "": "LandingPage",
     "songs/:id": "SongShow"
   },
 
@@ -12,6 +13,10 @@ MusicMastrMind.Routers.Router = Backbone.Router.extend({
     var song = this.songs.getAndFetch(id);
     var view = new MusicMastrMind.Views.SongShow({ model: song });
     this._swapView(view);
+  },
+
+  LandingPage: function () {
+    this.$rootEl.html("");
   },
 
   _swapView: function (view) {
