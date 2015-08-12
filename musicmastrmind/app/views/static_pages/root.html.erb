@@ -8,6 +8,6 @@
   $(MusicMastrMind.initialize);
   <% if logged_in? %>
     window.CURRENT_USER = {};
-    window.CURRENT_USER.username = '<%= current_user.username %>';
+    window.CURRENT_USER.username = '<%=current_user.username%>';
   <% end %>
 </script>

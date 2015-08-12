@@ -47,6 +47,8 @@
                 value=<%= $('meta[name="csrf-token"]').attr('content') %>>
             <button type="submit" class="btn btn-default">Log Out</button>
           </form></li>
+          <li><a href="#" data-method="delete">Test link delete</a></li>
+          <li><a href="#" data-test="delete">Test link </a></li>
         <% } else { %>
           <li><form action = "session/new"
             method = "get"
