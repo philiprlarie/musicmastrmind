@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
 
     if @user
       log_in(@user)
-      redirect_to user_url(@user)
+      redirect_to root_url
     else
       flash.now[:errors] = ["Invalid log-in credentials"]
       @user = User.new()

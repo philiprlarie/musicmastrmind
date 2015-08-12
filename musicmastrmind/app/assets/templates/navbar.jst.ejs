@@ -36,17 +36,29 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li>
+        <% if (window.CURRENT_USER) { %>
+          <li><a href="#"><%= CURRENT_USER.username %></a></li>
+          <li><form action = "session"
+            method = "post"
+            class="navbar-form navbar-right">
+            <input type="hidden" name="_method" value="delete">
+            <input type="hidden"
+                name="authenticity_token"
+                value=<%= $('meta[name="csrf-token"]').attr('content') %>>
+            <button type="submit" class="btn btn-default">Log Out</button>
+          </form></li>
+        <% } else { %>
+          <li><form action = "session/new"
+            method = "get"
+            class="navbar-form navbar-right">
+            <button type="submit" class="btn btn-default">Log In</button>
+          </form></li>
+          <li><form action = "users/new"
+            method = "get"
+            class="navbar-form navbar-right">
+            <button type="submit" class="btn btn-default">Sign Up</button>
+          </form></li>
+        <% } %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

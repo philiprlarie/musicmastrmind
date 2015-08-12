@@ -6,5 +6,8 @@
 
 <script>
   $(MusicMastrMind.initialize);
-  window.CURRENT_USER = '<%= current_user.to_json %>'
+  <% if logged_in? %>
+    window.CURRENT_USER = {};
+    window.CURRENT_USER.username = '<%= current_user.username %>';
+  <% end %>
 </script>
