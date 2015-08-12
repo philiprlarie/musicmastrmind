@@ -1,6 +1,6 @@
 MusicMastrMind.Views.SongShow = Backbone.View.extend({
   initialize: function () {
-    this.listenTo(this.model, "sync", this.render);
+    this.listenTo(this.model, "sync add remove", this.render);
   },
 
   template: JST['songs/show'],
