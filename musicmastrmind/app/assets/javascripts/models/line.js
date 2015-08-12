@@ -1,3 +1,3 @@
-MusicMastrMind.Models.Song = Backbone.Model.extend({
+MusicMastrMind.Models.Line = Backbone.Model.extend({
   urlRoot: "/api/lines"
 });
