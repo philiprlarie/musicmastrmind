@@ -1,6 +1,12 @@
 MusicMastrMind.Collections.Lines = Backbone.Collection.extend({
-  url: "/api/lines",
+  url: function () {
+    return this.song.url() + "/lines";
+  },
   model: MusicMastrMind.Models.Line,
+
+  initialize: function (models, options) {
+    this.song = options.song;
+  },
 
   getAndFetch: function(id) {
     var lines = this;

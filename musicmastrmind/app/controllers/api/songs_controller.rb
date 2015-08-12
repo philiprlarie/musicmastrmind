@@ -1,6 +1,6 @@
 class Api::SongsController < ApplicationController
   def show
-    @song = Song.includes(:lines).find(params[:id])
+    @song = Song.find(params[:id])
 
     if @song
       render :show
