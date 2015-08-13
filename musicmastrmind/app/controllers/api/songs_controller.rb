@@ -1,4 +1,14 @@
 class Api::SongsController < ApplicationController
+  def create
+    @song = Song.new(song_params)
+    if @song.save
+        render json: @song
+    else
+      render json: @song.errors.full_messages,
+        status: :unprocessable_entity
+    end
+  end
+
   def show
     @song = Song.find(params[:id])
 
@@ -7,6 +17,27 @@ class Api::SongsController < ApplicationController
     else
       render json: ["So such song"], status: 404
     end
+  end
+
+  def update
+  end
+
+  def destroy
+  end
+
+  def index
+  end
+
+  private
+  def song_params
+    params.require(:song).permit(
+      :title,
+      :writer,
+      :track_number,
+      :creator_id,
+      :artist_id,
+      :album_id
+    )
   end
 end
 
