@@ -4,6 +4,6 @@ json.extract! song, *song.attributes.keys
 lines ||= nil
 unless lines.nil?
   json.lines(lines) do |line|
-    json.partial!("api/lines/line", :line => line)
+    json.partial!("api/lines/line", line: line)
   end
 end
