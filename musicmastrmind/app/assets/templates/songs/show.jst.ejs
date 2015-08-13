@@ -1,1 +1,6 @@
 <h2><%= song.escape('title') %></h2>
+<ul>
+  <% lines.each( function (line) { %>
+    <li><%= line.escape('body') %></li>
+  <% }); %>
+</ul>
