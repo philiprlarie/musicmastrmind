@@ -1,1 +1,1 @@
-json.extract! @song, :id, :title, :created_at, :updated_at
+json.partial!("song", song: @song)
