@@ -30,14 +30,17 @@ class Api::SongsController < ApplicationController
   end
 
   def destroy
-    # fail
+    fail
     # don't implement deleting songs yet
-    @song = Song.find(params[:id])
-    @song.destroy!
-    render :show
+    # @song = Song.find(params[:id])
+    # @song.destroy!
+    # render :show
   end
 
   def index
+    @songs = get_collection
+    debugger
+    render json: @songs
   end
 
   private
@@ -51,47 +54,12 @@ class Api::SongsController < ApplicationController
       :album_id
     )
   end
+
+  def get_collection
+    return Song.all if params[:all] # probably should remove this at some point
+    return Song.where(album_id: params[:album_id]) if params[:album_id]
+    return Song.where(artist_id: params[:artist_id]) if params[:artist_id]
+    return Song.where(artist_id: params[:artist_id]) if params[:artist_id]
+  end
+
 end
-
-
-# From trello clone solutions
-# module Api
-#   class BoardsController < ApiController
-#     def create
-#       @board = current_user.boards.new(board_params)
-#
-#       if @board.save
-#         render json: @board
-#       else
-#         render json: @board.errors.full_messages, status: :unprocessable_entity
-#       end
-#     end
-#
-#     def destroy
-#       @board = current_user.boards.find(params[:id])
-#       @board.try(:destroy)
-#       render json: {}
-#     end
-#
-#     def index
-#       @boards = current_user.boards
-#       render json: @boards
-#     end
-#
-#     def show
-#       @board = Board.includes(:members, lists: :cards).find(params[:id])
-#
-#       if @board.is_member?(current_user)
-#         render :show
-#       else
-#         render json: ["You aren't a member of this board"], status: 403
-#       end
-#     end
-#
-#     private
-#
-#     def board_params
-#       params.require(:board).permit(:title)
-#     end
-#   end
-# end
