@@ -2,7 +2,7 @@ class Api::SongsController < ApplicationController
   def create
     @song = Song.new(song_params)
     if @song.save
-        render json: @song
+        render :show
     else
       render json: @song.errors.full_messages,
         status: :unprocessable_entity
@@ -20,6 +20,13 @@ class Api::SongsController < ApplicationController
   end
 
   def update
+    @song = Song.find(params[:id])
+    if @song.update(song_params)
+        render :show
+    else
+      render json: @song.errors.full_messages,
+        status: :unprocessable_entity
+    end
   end
 
   def destroy
