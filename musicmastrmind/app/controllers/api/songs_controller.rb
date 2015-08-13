@@ -39,7 +39,6 @@ class Api::SongsController < ApplicationController
 
   def index
     @songs = get_collection
-    debugger
     render json: @songs
   end
 
@@ -58,7 +57,6 @@ class Api::SongsController < ApplicationController
   def get_collection
     return Song.all if params[:all] # probably should remove this at some point
     return Song.where(album_id: params[:album_id]) if params[:album_id]
-    return Song.where(artist_id: params[:artist_id]) if params[:artist_id]
     return Song.where(artist_id: params[:artist_id]) if params[:artist_id]
   end
 
