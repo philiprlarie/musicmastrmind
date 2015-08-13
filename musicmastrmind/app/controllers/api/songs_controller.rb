@@ -30,6 +30,11 @@ class Api::SongsController < ApplicationController
   end
 
   def destroy
+    # fail
+    # don't implement deleting songs yet
+    @song = Song.find(params[:id])
+    @song.destroy!
+    render :show
   end
 
   def index
