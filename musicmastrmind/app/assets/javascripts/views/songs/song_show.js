@@ -38,7 +38,7 @@ MusicMastrMind.Views.SongShow = Backbone.CompositeView.extend({
       song: this.model
     });
     this.$el.html(content);
-    this.attachSubviews(); // subviews get put into the dom. They are already rendered into their respective $el's
+    this.attachSubviews(); // subviews $els get put into the dom. subviews are already rendered
     return this;
   }
 });
