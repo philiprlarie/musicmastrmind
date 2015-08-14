@@ -1,3 +1,3 @@
-json.array!(@todos) do |todo|
-  json.partial!("todo", :todo => todo)
+json.array!(@songs) do |song|
+  json.partial!("song", :song => song)
 end

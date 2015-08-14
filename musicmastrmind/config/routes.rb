@@ -9,7 +9,11 @@ Rails.application.routes.draw do
       resources :lines, only: [:index]
     end
 
-    resources :lines, only: [:create, :show, :destroy, :update]
+    resources :lines, only: [:create, :show, :destroy, :update] do
+      resources :interpretations, only: [:index]
+    end
+
+    resources :interpretations, only: [:create, :show, :destory, :update]
   end
 
 end
