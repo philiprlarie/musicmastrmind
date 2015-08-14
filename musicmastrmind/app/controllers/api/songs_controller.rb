@@ -40,7 +40,7 @@ class Api::SongsController < ApplicationController
 
   def index
     @songs = get_collection
-    render json: @songs
+    render :index
   end
 
   private
@@ -56,7 +56,7 @@ class Api::SongsController < ApplicationController
   end
 
   def get_collection
-    return Song.all if params[:all] # probably should remove this at some point
+    return Song.all if params[:all] # TODO probably should remove this at some point
     return Song.where(album_id: params[:album_id]) if params[:album_id]
     return Song.where(artist_id: params[:artist_id]) if params[:artist_id]
   end

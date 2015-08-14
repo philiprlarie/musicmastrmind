@@ -1,7 +1,7 @@
 class Api::LinesController < ApplicationController
   def index
     @lines = Line.where(song_id: params[:song_id])
-    render json: @lines
+    render :index
   end
 
   def create
@@ -16,6 +16,7 @@ class Api::LinesController < ApplicationController
 
   def show
     @line = Line.find(params[:id])
+    @interpretations = @line.interpretations
 
     if @line
       render :show
@@ -24,7 +25,7 @@ class Api::LinesController < ApplicationController
     end
   end
 
-  TODO only allow update c
+  # TODO only allow update certain params
   def update
     @line = Line.find(params[:id])
     if @line.update(line_params)

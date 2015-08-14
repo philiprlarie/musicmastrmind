@@ -1,7 +1,7 @@
 class Api::InterpretationsController < ApplicationController
   def index
     @interpretations = Interpretation.where(line_id: params[:line_id])
-    render json: @interpretations
+    render :index
   end
 
   def create
