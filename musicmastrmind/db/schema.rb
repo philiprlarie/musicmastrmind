@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150811204944) do
+ActiveRecord::Schema.define(version: 20150814221642) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "interpretations", force: :cascade do |t|
+    t.text     "body",       null: false
+    t.integer  "line_id",    null: false
+    t.integer  "creator_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "interpretations", ["creator_id"], name: "index_interpretations_on_creator_id", using: :btree
+  add_index "interpretations", ["line_id"], name: "index_interpretations_on_line_id", using: :btree
 
   create_table "lines", force: :cascade do |t|
     t.text     "body",       null: false

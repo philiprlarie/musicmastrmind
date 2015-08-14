@@ -23,9 +23,11 @@ class User < ActiveRecord::Base
     class_name: :Song,
     foreign_key: :creator_id
 
+  has_many :interpretations,
+    foreign_key: :creator_id
+
   # TODO add relations when more database tables are added
 
-  # has_many :line_interpretations
   # has_many :song_comments
   # has_many :line_comments
 

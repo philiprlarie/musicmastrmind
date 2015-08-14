@@ -1,0 +1,23 @@
+# == Schema Information
+#
+# Table name: interpretations
+#
+#  id         :integer          not null, primary key
+#  body       :text             not null
+#  line_id    :integer          not null
+#  creator_id :integer          not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  body: MyText
+  line_id: 1
+  creator_id: 1
+
+two:
+  body: MyText
+  line_id: 1
+  creator_id: 1

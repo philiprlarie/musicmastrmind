@@ -15,5 +15,5 @@ class Line < ActiveRecord::Base
   validates :order, uniqueness: { scope: :song_id }
 
   belongs_to :song
-  # TODO has many line interpretations
+  has_many :interpretations
 end
