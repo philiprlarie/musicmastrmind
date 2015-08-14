@@ -7,8 +7,9 @@ MusicMastrMind.Views.Navbar = Backbone.View.extend({
   template: JST['navbar'],
 
   handleRoute: function (route, params) {
-    $(".active").removeClass("active");
-    $("." + route).addClass("active");
+    // TODO doesn't seem to route when you refresh page or get here by direclty typing in the url. something about only firing route event when the url has changed.
+    this.$(".active").removeClass("active");
+    this.$("." + route).addClass("active");
   },
 
   render: function () {

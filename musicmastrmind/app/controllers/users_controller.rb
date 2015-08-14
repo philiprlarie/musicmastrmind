@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   end
 
   # this is just for developement, remove when done!
+  # TODO remove this
   def show
     @user = User.find(params[:id])
     render :show

@@ -7,7 +7,7 @@ MusicMastrMind.Views.SongsIndex = Backbone.View.extend({
 
   render:  function () {
     var content = this.template({
-      songs: this.collection // make this better with composite views maybe
+      songs: this.collection // TODO make this better with composite views maybe
     });
     this.$el.html(content);
     return this;

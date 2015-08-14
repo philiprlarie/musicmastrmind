@@ -37,6 +37,7 @@ class Api::LinesController < ApplicationController
 
   def destroy
     fail
+    # TODO add destroy functionality for lines? maybe we want this. maybe songs should be fully formed and lines should be uneditably once songs are created/ except by moderators?
     # don't implement deleting lines yet
     # @line = Line.find(params[:id])
     # @line.destroy!

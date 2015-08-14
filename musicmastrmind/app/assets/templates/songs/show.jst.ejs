@@ -1,6 +1,7 @@
 <h2><%= song.escape('title') %></h2>
 <ul>
   <% lines.each( function (line) { %>
+    <!-- TODO make this better with links or trigger events to open up the song interpretations view -->
     <li><%= line.escape('body') %></li>
   <% }); %>
 </ul>

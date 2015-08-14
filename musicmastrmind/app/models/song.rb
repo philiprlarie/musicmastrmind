@@ -14,6 +14,7 @@
 #
 
 class Song < ActiveRecord::Base
+  # TODO add validations and relations when more database tables are added
   # validates :title, :creator, :artist, :album, presence: true
   validates :title, :creator, presence: true
   # validates :track_number, uniqueness: { scope: :album_id }

@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def auth_token_input
+  def form_token
     "<input
         type=\"hidden\"
         name=\"authenticity_token\"

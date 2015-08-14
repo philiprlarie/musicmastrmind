@@ -31,6 +31,7 @@ class Api::SongsController < ApplicationController
 
   def destroy
     fail
+    # TODO implement deleting songs. Who should have control of this? administrators?
     # don't implement deleting songs yet
     # @song = Song.find(params[:id])
     # @song.destroy!

@@ -1,11 +1,8 @@
 <h1>Sign Up</h1>
+<!-- TODO add links to root page w/o signing in. Style better -->
 
 <form method="post" action="<%= users_url %>">
-  <%#= form_token %>
-  <input type="hidden"
-    name="authenticity_token"
-    value="<%= form_authenticity_token %>">
-    <!--  put your auth token in a helper method-->
+  <%= form_token %>
 
   <label for="Username">Username: </label>
   <input type="text"
