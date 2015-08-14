@@ -35,6 +35,7 @@ class Api::InterpretationsController < ApplicationController
     end
   end
 
+  # TODO make sure only current user can destroy his own interpretations. this should probably be done right here in the controller. also, only show destroy button to owner on the front end side.
   def destroy
     @interpretation = Interpretation.find(params[:id])
     @interpretation.destroy!
@@ -43,12 +44,6 @@ class Api::InterpretationsController < ApplicationController
 
   private
   def interpretation_params
-    params.require(:interpretation).permit(:body, :creator_id, :song_id)
+    params.require(:interpretation).permit(:body, :creator_id, :line_id)
   end
-end
-
-!!!!!!!!!!!!!!!!!!!! this is reference junk. delete when done
-class Api::LinesController < ApplicationController
-
-
 end
