@@ -16,6 +16,7 @@
 //= require backbone
 //= require bootstrap
 //= require musicmastrmind
+//= require_tree ./utils
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections

@@ -30,7 +30,7 @@ MusicMastrMind.Routers.Router = Backbone.Router.extend({
 
 
   _swapView: function (view) {
-    this.currentView && this.currentView.remove();
+    this.currentView && this.currentView.remove(); // jshint ignore:line
     this.currentView = view;
     this.$rootEl.html(view.$el);
     view.render();
