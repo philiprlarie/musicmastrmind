@@ -8,12 +8,13 @@ window.MusicMastrMind = {
     var router = new MusicMastrMind.Routers.Router({
       $rootEl: $('#content')
     });
-    Backbone.history.start();
 
     var nav = new MusicMastrMind.Views.Navbar({
       router: router
     });
-    $('#navbar').html(nav.$el);
     nav.render();
+    $('#navbar').html(nav.$el);
+
+    Backbone.history.start();
   }
 };

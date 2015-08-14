@@ -24,9 +24,9 @@ class Api::LinesController < ApplicationController
     end
   end
 
+  TODO only allow update c
   def update
     @line = Line.find(params[:id])
-    debugger
     if @line.update(line_params)
         render :show
     else
