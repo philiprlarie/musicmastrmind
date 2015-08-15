@@ -16,5 +16,6 @@ window.MusicMastrMind = {
     $('#navbar').html(nav.$el);
 
     Backbone.history.start();
+    
   }
 };
