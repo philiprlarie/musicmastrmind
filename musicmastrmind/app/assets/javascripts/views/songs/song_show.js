@@ -5,13 +5,6 @@ MusicMastrMind.Views.SongShow = Backbone.CompositeView.extend({
 
   initialize: function () {
     this.listenTo(this.model, "sync", this.render);
-    // this.listenTo(
-    //   this.model.lines(), "add", this.addLine
-    // );
-    // this.listenTo(
-    //   this.model.lines(), "remove", this.removeLine
-    // );
-    // this.model.lines().each(this.addLine.bind(this));
   },
 
   events: {
@@ -26,14 +19,6 @@ MusicMastrMind.Views.SongShow = Backbone.CompositeView.extend({
     var lineShow = new MusicMastrMind.Views.LineShow({ model: line });
     this.addSubview(".line-show", lineShow); // this is where subviews are rendered
   },
-
-
-
-
-
-
-
-
 
 
 
