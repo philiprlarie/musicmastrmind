@@ -1,2 +1,10 @@
-<h2><%= song.escape('title') %></h2>
-<div class="lines"></div>
+<h2 class="song-title"><%= song.escape('title') %></h2>
+<ul class="lines">
+  <% song.lines().each(function (line) { %>
+    <li class="lyric" data-line-id="<%= line.escape('id') %>">
+      <%= line.escape('body') %>
+    </li>
+  <% }); %>
+</ul>
+<!-- TODO look up html conventions -->
+<div class="line-show"></div>

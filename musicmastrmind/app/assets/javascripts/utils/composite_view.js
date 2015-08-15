@@ -56,7 +56,7 @@ Backbone.CompositeView = Backbone.View.extend({
 
   onRender: function() {
     this.eachSubview(function (subview) {
-      subview.onRender && subview.onRender();
+      subview.onRender && subview.onRender(); // jshint ignore:line
     });
   },
 
@@ -72,6 +72,16 @@ Backbone.CompositeView = Backbone.View.extend({
 
     var selectorSubviews = this.subviews(selector);
     selectorSubviews.splice(selectorSubviews.indexOf(subview), 1);
+  },
+
+  // this is mine. I made this. not ned. me.
+  // TODO grab the documentation for this so that I have a record of my own composite view.
+  removeSubviews: function (selector) {
+    var subviews = (this.subviews(selector));
+    var that = this;
+    subviews.each(function (subview) {
+      that.removeSubview(selector, subview);
+    });
   },
 
   removeModelSubview: function (selector, model) {

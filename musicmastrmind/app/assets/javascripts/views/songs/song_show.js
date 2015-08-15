@@ -1,36 +1,41 @@
 MusicMastrMind.Views.SongShow = Backbone.CompositeView.extend({
   template: JST['songs/show'],
 
+  className: 'songShow',
+
   initialize: function () {
     this.listenTo(this.model, "sync", this.render);
-    this.listenTo(
-      this.model.lines(), "add", this.addLine
-    );
-
-    this.listenTo(
-      this.model.lines(), "remove", this.removeLine
-    );
-
-    this.model.lines().each(this.addLine.bind(this));
+    // this.listenTo(
+    //   this.model.lines(), "add", this.addLine
+    // );
+    // this.listenTo(
+    //   this.model.lines(), "remove", this.removeLine
+    // );
+    // this.model.lines().each(this.addLine.bind(this));
   },
 
-  addLine: function (line) {
-    var linesShow =
-      new MusicMastrMind.Views.LineShow({ model: line });
-    this.addSubview(".lines", linesShow); // this is where subviews are rendered
+  events: {
+    "click .lyric": "showLine"
   },
 
-  removeLine: function (line) {
-    // TODO refactor this using the provided CompositeView removeModelSubview (selector, model) method
-    var subview = _.find(
-      this.subviews(".lines"),
-      function (subview) {
-        return subview.model === line;
-      }
-    );
-
-    this.removeSubview(".lines", subview);
+  showLine: function (event) {
+    this.removeSubviews('.line-show');
+    event.preventDefault();
+    var target = $(event.currentTarget);
+    var line = this.model.lines().getAndFetch(target.data('line-id'));
+    var lineShow = new MusicMastrMind.Views.LineShow({ model: line });
+    this.addSubview(".line-show", lineShow); // this is where subviews are rendered
   },
+
+
+
+
+
+
+
+
+
+
 
   render:  function () {
     var view = this;
