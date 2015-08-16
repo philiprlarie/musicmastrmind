@@ -1,3 +1,3 @@
-MusicMastrMind.Models.Interpretation = Backbone.Model.extend({
+MusicMastrMind.Models.User = Backbone.Model.extend({
   urlRoot: "/api/users"
 });
