@@ -7,3 +7,10 @@ unless lines.nil?
     json.partial!("api/lines/line", line: line)
   end
 end
+
+creator ||= nil
+unless creator.nil?
+  json.creator do
+    json.partial!("api/users/user", user: creator)
+  end
+end

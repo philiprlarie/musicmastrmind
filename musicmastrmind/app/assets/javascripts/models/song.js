@@ -7,6 +7,11 @@ MusicMastrMind.Models.Song = Backbone.Model.extend({
       this.lines().set(response.lines, { parse: true });
       delete response.lines;
     }
+    if (response.creator) {
+      // only need to parse if we will be nesting things inside lines. we might need to parse inside. either way, doesn't hurt.
+      this.creator().set(response.creator, { parse: true });
+      delete response.creator;
+    }
 
     return response;
   },
@@ -17,5 +22,13 @@ MusicMastrMind.Models.Song = Backbone.Model.extend({
     }
 
     return this._lines;
+  },
+
+  creator: function () {
+    if (!this._creator) {
+      this._creator = new MusicMastrMind.Models.User();
+    }
+
+    return this._creator;
   }
 });
