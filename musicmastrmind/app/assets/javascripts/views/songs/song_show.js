@@ -4,7 +4,7 @@ MusicMastrMind.Views.SongShow = Backbone.CompositeView.extend({
   className: 'songShow',
 
   initialize: function () {
-    this.listenTo(this.model, "sync", this.render);
+    this.listenTo(this.model, "sync add remove", this.render);
   },
 
   events: {

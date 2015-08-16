@@ -1,35 +1,57 @@
-MusicMastrMind.Views.LineShow = Backbone.View.extend({
-  initialize: function () {
-    this.listenTo(this.model, "sync add remove", this.render);
-  },
-
+MusicMastrMind.Views.LineShow = Backbone.CompositeView.extend({
   template: JST['lines/show'],
 
   className: 'line',
 
-  events: {
-    "click": "showLineInterpretations"
+  initialize: function () {
+    this.listenTo(this.model, "sync add remove", this.render);
+
+    this.listenTo(
+      this.model.interpretations(), "add", this.addInterpretation
+    );
+    this.listenTo(
+      this.model.interpretations(), "remove", this.removeInterpretation
+    );
+
+    // TODO add new interpretaion form view
+    // var interpretationNewView =
+    //   new App.Views.InterpretationNew({ model: this.model });
+    // this.addSubview(".interpretations-new", interpretationNewView);
+    //
+    this.model.interpretations().each(this.addInterpretation.bind(this));
   },
 
-  showLineInterpretations: function (event) {
-    var line = this.model;
-    var lineShowView = new MusicMastrMind.Views.LineShow({ model: line });
-    debugger;
-    // remove the current view in the div "line-show"
-    // put new line view in the line show div. user current target to get which line we hsould show. store the line id as data in the div?
-    // be careful about removing views correctly, no zombie views.
+  addInterpretation: function (interpretation) {
+    // TODO ask about how to make split long lines. cant make a newlien after equals sign
+    var interpretationsShow =
+      new MusicMastrMind.Views.InterpretationShow({ model: interpretation });
+    this.addSubview(".interpretations", interpretationsShow);
+  },
+
+  removeInterpretation: function (interpretation) {
+    // interpretation this is the model TODO use remove by model.
+    var subview = _.find(
+      this.subviews(".interpretations"),
+      function (subview) {
+        return subview.model === interpretation;
+      }
+    );
+
+    this.removeSubview(".interpretations", subview);
   },
 
 
 
 
-
-  render:  function () {
-    var content = this.template({
-      line: this.model,
-      // interpretations: this.model.interpretations() // TODO make this better with composite views
+  render: function () {
+    var view = this;
+    var renderedContent = this.template({
+      line: this.model
     });
-    this.$el.html(content);
+
+    this.$el.html(renderedContent);
+    this.attachSubviews();
+
     return this;
   }
 });
