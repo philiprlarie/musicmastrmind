@@ -1,1 +1,4 @@
-json.partial!("interpretation", interpretation: @interpretation)
+json.partial!("interpretation",
+  interpretation: @interpretation,
+  creator: @creator
+)

@@ -4,6 +4,8 @@ json.extract! line, *line.attributes.keys
 interpretations ||= nil
 unless interpretations.nil?
   json.interpretations(interpretations) do |interpretation|
-    json.partial!("api/interpretations/interpretation", interpretation: interpretation)
+    json.partial!("api/interpretations/interpretation",
+      interpretation: interpretation,
+      creator: interpretation.creator)
   end
 end

@@ -16,7 +16,7 @@ class Api::InterpretationsController < ApplicationController
 
   def show
     @interpretation = Interpretation.find(params[:id])
-
+    @creator = @interpretation.creator
     if @interpretation
       render :show
     else
