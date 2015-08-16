@@ -11,7 +11,6 @@ MusicMastrMind.Views.InterpretationShow = Backbone.View.extend({
   className: 'interpretation',
 
   render:  function () {
-    debugger
     var content = this.template({
       interpretation: this.model,
     });

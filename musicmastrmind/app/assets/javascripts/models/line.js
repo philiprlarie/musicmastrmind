@@ -3,8 +3,11 @@ MusicMastrMind.Models.Line = Backbone.Model.extend({
 
   parse: function (response) {
     if (response.interpretations) {
-      // only need to parse if we will be nesting things inside interpretations. we might need to parse inside. either way, doesn't hurt.
-      this.interpretations().set(response.interpretations, { parse: true });
+      // need to parse because user data is nested in interepretaions
+      this.interpretations().set(
+        response.interpretations,
+        { parse: true }
+      );
       delete response.interpretations;
     }
 

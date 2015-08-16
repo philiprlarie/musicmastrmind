@@ -16,7 +16,9 @@ class Api::LinesController < ApplicationController
 
   def show
     @line = Line.find(params[:id])
-    @interpretations = @line.interpretations
+    # TODO ask is this an N + 1 query? we are also including interpretation creator later. better way to do this?
+    @interpretations =
+      Interpretation.includes(:creator).where("line_id = ?", @line.id)
 
     if @line
       render :show

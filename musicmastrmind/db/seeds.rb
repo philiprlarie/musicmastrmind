@@ -93,6 +93,16 @@ interpretation2 = Interpretation.create({
   creator_id: user3.id
 })
 interpretation2 = Interpretation.create({
+  body: "Great line!",
+  line_id: line1.id,
+  creator_id: user1.id
+})
+interpretation2 = Interpretation.create({
+  body: "Very great line!!",
+  line_id: line1.id,
+  creator_id: user4.id
+})
+interpretation2 = Interpretation.create({
   body: "The wind is the high one now?",
   line_id: line2.id,
   creator_id: user3.id
