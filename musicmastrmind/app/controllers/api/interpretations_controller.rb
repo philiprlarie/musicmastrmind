@@ -6,6 +6,8 @@ class Api::InterpretationsController < ApplicationController
 
   def create
     @interpretation = Interpretation.new(interpretation_params)
+    @interpretation.creator_id = current_user.id
+    @creator = @interpretation.creator
     if @interpretation.save
         render :show
     else

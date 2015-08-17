@@ -12,6 +12,7 @@
     return this;
   },
 
+  // TODO compare this way to enter a form with that from TrelloClone. What is the best way to enter a form? can you do new/edit at the same time?
   submit: function (event) {
     event.preventDefault();
     var view = this;
@@ -21,7 +22,7 @@
 
     interpretation.save({}, {
       success: function () {
-        view.model.comments().add(comment);
+        view.model.interpretations().add(interpretation);
         // re-render to clear form/preview
         view.render();
       }
