@@ -13,11 +13,10 @@ MusicMastrMind.Views.LineShow = Backbone.CompositeView.extend({
       this.model.interpretations(), "remove", this.removeInterpretation
     );
 
-    // TODO add new interpretaion form view
-    // var interpretationNewView =
-    //   new App.Views.InterpretationNew({ model: this.model });
-    // this.addSubview(".interpretations-new", interpretationNewView);
-    //
+    var interpretationNewView =
+      new MusicMastrMind.Views.InterpretationNew({ model: this.model });
+    this.addSubview(".interpretations-new", interpretationNewView);
+
     this.model.interpretations().each(this.addInterpretation.bind(this));
   },
 
