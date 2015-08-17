@@ -4,7 +4,7 @@
 <!-- TODO maybe make this a table view that is sortable. see ned's videos -->
 <ul class="lines">
   <% song.lines().each(function (line) { %>
-    <li class="lyric" data-line-id="<%= line.escape('id') %>">
+    <li class="song-lyric" data-line-id="<%= line.escape('id') %>">
       <%= line.escape('body') %>
     </li>
   <% }); %>

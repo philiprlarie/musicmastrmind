@@ -15,7 +15,7 @@ MusicMastrMind.Views.SongShow = Backbone.CompositeView.extend({
 
   events: {
     // TODO ask this will rerender the showLine every time this is clicked, even if it is already showing. Worth worrying about?
-    "click .lyric": "showLine"
+    "click .song-lyric": "showLine"
   },
 
   showLine: function (event) {
