@@ -12,6 +12,7 @@
     return this;
   },
 
+  // TODO allow for editing of the current user's post
   // TODO compare this way to enter a form with that from TrelloClone. What is the best way to enter a form? can you do new/edit at the same time?
   submit: function (event) {
     event.preventDefault();
