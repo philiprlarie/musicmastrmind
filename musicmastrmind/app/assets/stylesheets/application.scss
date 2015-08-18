@@ -19,11 +19,26 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-// TODO add some sweet CSS here
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.group::after {
+  content: "";
+  display: block;
+  clear: both;
+}
 
 body {
   font-family: "Lora";
   font-size: 16px;
   font-weight: 400;
   background: #eee;
+}
+
+#content {
+    display: block;
+    width: 900px;
+    margin: 0 auto;
 }

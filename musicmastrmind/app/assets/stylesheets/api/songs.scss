@@ -2,6 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-li.song-lyric {
+.song-primary {
+  float: left;
+}
+
+.line-show {
+  float: right;
+}
+
+.song-lyric {
+  display: inline-block;
   cursor: pointer;
+  clear: both;
+  white-space: pre-line;
+  font-weight: bold;
+  margin: 5px 0px;
+}
+
+.song-lyric:hover {
+  background-color: #998
 }
