@@ -9,6 +9,8 @@
   <% if logged_in? %>
     window.CURRENT_USER = {};
     window.CURRENT_USER.username = '<%=current_user.username%>';
+    window.CURRENT_USER.id = '<%=current_user.id%>';
+
   <% end %>
 </script>
 

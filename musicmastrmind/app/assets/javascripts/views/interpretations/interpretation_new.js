@@ -31,8 +31,3 @@
   }
 
 });
-//
-//   submit: function (event) {
-//
-//   }
-// });

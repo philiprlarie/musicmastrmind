@@ -13,17 +13,25 @@ MusicMastrMind.Views.LineShow = Backbone.CompositeView.extend({
       this.model.interpretations(), "remove", this.removeInterpretation
     );
 
-    var interpretationNewView =
-      new MusicMastrMind.Views.InterpretationNew({ model: this.model });
-    this.addSubview(".interpretations-new", interpretationNewView);
-
     this.model.interpretations().each(this.addInterpretation.bind(this));
+    // this.addInterpretations();
   },
 
+  // addInterpretations: function () {
+  //   var view = this;
+  //   view.model.interpretations().each(function () {
+  //     view.addInterpretation.bind(view);
+  //   });
+  // },
+
   addInterpretation: function (interpretation) {
-    // TODO ask about how to make split long lines. cant make a newlien after equals sign
+    var belongsToCurrentUser =
+      interpretation.creator().id == window.CURRENT_USER.id;
     var interpretationsShow =
-      new MusicMastrMind.Views.InterpretationShow({ model: interpretation });
+      new MusicMastrMind.Views.InterpretationShow({
+        model: interpretation,
+        belongsToCurrentUser: belongsToCurrentUser
+      });
     this.addSubview(".interpretations", interpretationsShow);
   },
 
@@ -39,6 +47,26 @@ MusicMastrMind.Views.LineShow = Backbone.CompositeView.extend({
     this.removeSubview(".interpretations", subview);
   },
 
+  // TODO make sure this only pops up when it should. Right now it shows up for the first render before the interpretations have been fetched. It flashes there then goes away.
+  addNewForm: function () {
+    this.removeSubviews('.interpretations-new');
+    if (window.CURRENT_USER && !this._currentUserHasInterpretation()) {
+      var interpretationNewView =
+        new MusicMastrMind.Views.InterpretationNew({ model: this.model });
+      this.addSubview(".interpretations-new", interpretationNewView);
+    }
+  },
+
+  _currentUserHasInterpretation: function () {
+    var id = window.CURRENT_USER.id;
+    var returnVal = false;
+    this.model.interpretations().each(function(interpretation) {
+      if (id == interpretation.creator().id) {
+        returnVal = true;
+      }
+    });
+    return returnVal;
+  },
 
 
 
@@ -49,6 +77,7 @@ MusicMastrMind.Views.LineShow = Backbone.CompositeView.extend({
     });
 
     this.$el.html(renderedContent);
+    this.addNewForm(); // only adds from for new interpretation if signed in and user doesn't already have interpretation
     this.attachSubviews();
 
     return this;

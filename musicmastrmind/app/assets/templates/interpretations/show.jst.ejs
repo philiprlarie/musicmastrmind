@@ -1,2 +1,7 @@
 <%= interpretation.escape('body') %>
 <b> - <%= interpretation.creator().escape('username') %></b>
+<% if (belongsToCurrentUser) { %>
+  this belongs to current user
+<% } else { %>
+  this doesn't belong to current user
+<% } %>
