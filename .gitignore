@@ -1,1 +1,4 @@
 .DS_Store
+
+# Ignore application configuration
+/musicmastrmind/config/application.yml
