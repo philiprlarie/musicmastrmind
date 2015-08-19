@@ -5,16 +5,10 @@ MusicMastrMind.Views.SongShow = Backbone.CompositeView.extend({
 
   initialize: function () {
     this.listenTo(this.model, "sync add remove", this.render);
-    this.listenTo(this.model, "sync", this.handleSync);
     this.listenTo(this.model.creator(), "sync", this.render);
   },
 
-  handleSync: function () {
-    this.model.creator().fetch(); // TODO ask is this a good place for this fetch? you can only fetch the creator when you have already a "creator_id" attribute in the song. that will only come after it has been fetched.
-  },
-
   events: {
-    // TODO ask this will rerender the showLine every time this is clicked, even if it is already showing. Worth worrying about?
     "click .song-lyric": "showLine"
   },
 
@@ -28,7 +22,7 @@ MusicMastrMind.Views.SongShow = Backbone.CompositeView.extend({
   },
 
 
-
+  
   render:  function () {
     var view = this;
     var content = this.template({
