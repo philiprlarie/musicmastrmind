@@ -26,7 +26,6 @@ class Api::InterpretationsController < ApplicationController
     end
   end
 
-  # TODO only allow update certain attributes
   def update
     @interpretation = Interpretation.find(params[:id])
     if @interpretation.update(interpretation_params)
@@ -37,15 +36,19 @@ class Api::InterpretationsController < ApplicationController
     end
   end
 
-  # TODO make sure only current user can destroy his own interpretations. this should probably be done right here in the controller. also, only show destroy button to owner on the front end side.
   def destroy
     @interpretation = Interpretation.find(params[:id])
-    @interpretation.destroy!
-    render :show
+    if @interpretation.creator == current_user
+      @interpretation.destroy!
+      render :show
+    else
+      render json: "can only delete your own items",
+        status: :unprocessable_entity
+    end
   end
 
   private
   def interpretation_params
-    params.require(:interpretation).permit(:body, :creator_id, :line_id)
+    params.require(:interpretation).permit(:body, :line_id)
   end
 end
