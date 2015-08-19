@@ -12,7 +12,6 @@ MusicMastrMind.Views.LineShow = Backbone.CompositeView.extend({
 
   handleFetchedLine: function () {
     this.listenTo(this.model, "sync add remove", this.render);
-
     this.listenTo(
       this.model.interpretations(), "add", this.addInterpretation
     );
@@ -30,7 +29,6 @@ MusicMastrMind.Views.LineShow = Backbone.CompositeView.extend({
   },
 
   addInterpretation: function (interpretation) {
-    // TODO refactor all of this business. belongs in interpretation model
     var interpretationsShow =
       new MusicMastrMind.Views.InterpretationShow({
         model: interpretation,
@@ -38,32 +36,14 @@ MusicMastrMind.Views.LineShow = Backbone.CompositeView.extend({
       });
     this.addSubview(".interpretations", interpretationsShow);
 
-
-    this.addNewForm(); //TODO rename this. Also, look into this functionality. It seems weird to bee here. probably better to just have "this.removeSubviews('.interpretations-new');" A new view is rendered every time this is called. it basically is the go to to deal with adding and taking away the new form. will remove it by default. We need to remove when a new entry is added by submitting the form itself.
+    this.removeSubviews('.interpretations-new'); // remove form when user adds his onw interpretation
   },
 
-  // removeInterpretation: function (interpretation) {
-  //   // interpretation this is the model TODO use remove by model.
-  //   var subview = _.find(
-  //     this.subviews(".interpretations"),
-  //     function (subview) {
-  //       return subview.model === interpretation;
-  //     }
-  //   );
-  //
-  //   this.removeSubview(".interpretations", subview);
-  //   this.addNewForm();
-  // },
   removeInterpretation: function (interpretation) {
     this.removeModelSubview(".interpretations", interpretation);
     this.addNewForm();
   },
 
-
-
-
-
-  // TODO make sure this only pops up when it should. Right now it shows up for the first render before the interpretations have been fetched. It flashes there then goes away.
   addNewForm: function () {
     this.removeSubviews('.interpretations-new');
     if (window.CURRENT_USER && !this._currentUserHasInterpretation()) {
@@ -79,16 +59,14 @@ MusicMastrMind.Views.LineShow = Backbone.CompositeView.extend({
   },
 
   _currentUserHasInterpretation: function () {
-    var id = window.CURRENT_USER.id;
-    var returnVal = false;
-    this.model.interpretations().each(function(interpretation) {
-      if (id == interpretation.creator().id) {
-        returnVal = true;
-      }
-    });
-    return returnVal;
+    if (this.model.interpretations().any(function(interpretation) {
+      return interpretation.belongsToCurrentUser;
+    })) {
+      return true;
+    } else {
+      return false;
+    }
   },
-
 
 
   render: function () {
