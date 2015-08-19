@@ -28,10 +28,15 @@ class Api::InterpretationsController < ApplicationController
 
   def update
     @interpretation = Interpretation.find(params[:id])
-    if @interpretation.update(interpretation_params)
-        render :show
+    if @interpretation.creator == current_user
+      if @interpretation.update(interpretation_params)
+          render :show
+      else
+        render json: @interpretation.errors.full_messages,
+          status: :unprocessable_entity
+      end
     else
-      render json: @interpretation.errors.full_messages,
+      render json: "can only update your own items",
         status: :unprocessable_entity
     end
   end
