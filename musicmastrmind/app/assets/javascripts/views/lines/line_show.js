@@ -38,19 +38,29 @@ MusicMastrMind.Views.LineShow = Backbone.CompositeView.extend({
         belongsToCurrentUser: belongsToCurrentUser
       });
     this.addSubview(".interpretations", interpretationsShow);
+    this.addNewForm(); //TODO rename this. it basically is the go to to deal with adding and taking away the new form. will remove it by default. We need to remove when a new entry is added by submitting the form itself.
   },
 
+  // removeInterpretation: function (interpretation) {
+  //   // interpretation this is the model TODO use remove by model.
+  //   var subview = _.find(
+  //     this.subviews(".interpretations"),
+  //     function (subview) {
+  //       return subview.model === interpretation;
+  //     }
+  //   );
+  //
+  //   this.removeSubview(".interpretations", subview);
+  //   this.addNewForm();
+  // },
   removeInterpretation: function (interpretation) {
-    // interpretation this is the model TODO use remove by model.
-    var subview = _.find(
-      this.subviews(".interpretations"),
-      function (subview) {
-        return subview.model === interpretation;
-      }
-    );
-
-    this.removeSubview(".interpretations", subview);
+    this.removeModelSubview(".interpretations", interpretation);
+    this.addNewForm();
   },
+
+
+
+
 
   // TODO make sure this only pops up when it should. Right now it shows up for the first render before the interpretations have been fetched. It flashes there then goes away.
   addNewForm: function () {
