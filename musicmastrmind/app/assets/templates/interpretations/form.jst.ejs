@@ -1,7 +1,12 @@
-<h3>New Interpretation</h3>
+<% if (interpretation.isNew()) { %>
+  <h3>New Interpretation</h3>
+<% } else { %>
+  <h3>Edit Interpretation</h3>
+<% } %>
+
 <label>
   Comment Content
-  <textarea name="interpretation[body]"></textarea>
+  <textarea name="interpretation[body]"><%= interpretation.escape("body") %></textarea>
 </label>
 
 <input type="submit">
