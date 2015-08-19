@@ -22,21 +22,22 @@ class Api::SongsController < ApplicationController
 
   def update
     @song = Song.find(params[:id])
-    if @song.update(song_params)
-        render :show
-    else
-      render json: @song.errors.full_messages,
-        status: :unprocessable_entity
+    if user_permission?(song)
+      if @song.update(song_params)
+          render :show
+      else
+        render json: @song.errors.full_messages,
+          status: :unprocessable_entity
+      end
     end
   end
 
   def destroy
-    fail
-    # TODO implement deleting songs. Who should have control of this? administrators?
-    # don't implement deleting songs yet
-    # @song = Song.find(params[:id])
-    # @song.destroy!
-    # render :show
+    @song = Song.find(params[:id])
+    if user_permission?(song)
+      @song.destroy!
+      render :show
+    end
   end
 
   def index
@@ -54,6 +55,16 @@ class Api::SongsController < ApplicationController
       :artist_id,
       :album_id
     )
+  end
+
+  def user_permission?(song)
+    if song.creator != current_user
+      render json: "you don't have permission for this song",
+        status: :unprocessable_entity
+      return false
+    else
+      return true
+    end
   end
 
   def get_collection

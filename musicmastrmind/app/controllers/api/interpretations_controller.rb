@@ -56,4 +56,14 @@ class Api::InterpretationsController < ApplicationController
   def interpretation_params
     params.require(:interpretation).permit(:body, :line_id)
   end
+
+  def user_permission?(interpretation)
+    if interpretation.creator != current_user
+      render json: "you don't have permission for this interpretation",
+        status: :unprocessable_entity
+      return false
+    else
+      return true
+    end
+  end
 end
