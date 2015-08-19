@@ -5,6 +5,7 @@
 
   initialize: function (options) {
     this.line = options.line;
+    this.submitDisabled = false;
   },
 
   events: {
@@ -19,39 +20,27 @@
     return this;
   },
 
-  // TODO watch out for double form submit. disable submit button
+  // TODO consider adding an hourglass or something while waiting for response
   submit: function (event) {
     event.preventDefault();
+    if (this.submitDisabled) { // preventing double submit
+      return "waiting for previous submit. hold your horses";
+    }
+    this.submitDisabled = true;
+
     var view = this;
     var params = $(event.currentTarget).serializeJSON();
     this.model.set("body", params.interpretation.body);
 
-    var interpretation = this;
     this.model.save({}, {
       success: function () {
         view.line.interpretations().add(view.model);
-        // re-render to clear form/preview
-        view.render();
+        this.submitDisabled = false;
+      },
+      error: function () {
+        this.submitDisabled = false;
       }
     });
   }
-
-  // submit: function (event) {
-  //   event.preventDefault();
-  //   var view = this;
-  //   var params = $(event.currentTarget).serializeJSON();
-  //   this.model.set("body", params.interpretation.body);
-  //
-  //   var interpretation = this;
-  //   this.model.save({}, {
-  //     success: function () {
-  //       setTimeout(function () {
-  //         view.line.interpretations().add(view.model);
-  //         // re-render to clear form/preview
-  //         view.render();
-  //       }, 1000);
-  //     }
-  //   });
-  // }
 
 });
