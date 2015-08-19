@@ -2,12 +2,18 @@
   template: JST['interpretations/form'],
   tagName: 'form',
 
+  initialize: function (options) {
+    this.line = options.line;
+  },
+
   events: {
     'submit': 'submit'
   },
 
   render: function () {
-    var content = this.template({ line: this.model });
+    var content = this.template({
+      interpretation: this.model
+    });
     this.$el.html(content);
     return this;
   },
@@ -18,12 +24,12 @@
     event.preventDefault();
     var view = this;
     var params = $(event.currentTarget).serializeJSON();
-    var interpretation =
-      new MusicMastrMind.Models.Interpretation(params["interpretation"]);
+    this.model.set("body", params.interpretation.body);
 
-    interpretation.save({}, {
+    var interpretation = this;
+    this.model.save({}, {
       success: function () {
-        view.model.interpretations().add(interpretation);
+        view.line.interpretations().add(view.model);
         // re-render to clear form/preview
         view.render();
       }

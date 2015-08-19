@@ -40,7 +40,9 @@ MusicMastrMind.Views.LineShow = Backbone.CompositeView.extend({
         belongsToCurrentUser: belongsToCurrentUser
       });
     this.addSubview(".interpretations", interpretationsShow);
-    this.addNewForm(); //TODO rename this. it basically is the go to to deal with adding and taking away the new form. will remove it by default. We need to remove when a new entry is added by submitting the form itself.
+
+
+    this.addNewForm(); //TODO rename this. Also, look into this functionality. It seems weird to bee here. probably better to just have "this.removeSubviews('.interpretations-new');" A new view is rendered every time this is called. it basically is the go to to deal with adding and taking away the new form. will remove it by default. We need to remove when a new entry is added by submitting the form itself.
   },
 
   // removeInterpretation: function (interpretation) {
@@ -69,7 +71,12 @@ MusicMastrMind.Views.LineShow = Backbone.CompositeView.extend({
     this.removeSubviews('.interpretations-new');
     if (window.CURRENT_USER && !this._currentUserHasInterpretation()) {
       var interpretationNewView =
-        new MusicMastrMind.Views.InterpretationNew({ model: this.model });
+        new MusicMastrMind.Views.InterpretationNew({
+          model: new MusicMastrMind.Models.Interpretation({
+            line_id: this.model.id
+          }),
+          line: this.model
+        });
       this.addSubview(".interpretations-new", interpretationNewView);
     }
   },
