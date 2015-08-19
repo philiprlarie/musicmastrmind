@@ -60,9 +60,8 @@ class Api::ArtistsController < ApplicationController
   end
 
   def get_collection
-    # TODO fix up this collection business
-    return Artist.all if params[:all] # TODO probably should remove this at some point
-    return Artist.where(album_id: params[:album_id]) if params[:album_id]
+    return Artist.all
+    # TODO search by artist first letter
   end
 
 end
