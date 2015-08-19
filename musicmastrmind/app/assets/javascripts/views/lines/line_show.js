@@ -20,10 +20,10 @@ MusicMastrMind.Views.LineShow = Backbone.CompositeView.extend({
       this.model.interpretations(), "remove", this.removeInterpretation
     );
 
-    this.addInterpretations();
+    this.addSubviews();
   },
 
-  addInterpretations: function () {
+  addSubviews: function () {
     this.model.interpretations().each(this.addInterpretation.bind(this));
 
     this.addNewForm(); // only adds from for new interpretation if signed in and user doesn't already have interpretation. else does nothing
@@ -37,7 +37,8 @@ MusicMastrMind.Views.LineShow = Backbone.CompositeView.extend({
     var interpretationsShow =
       new MusicMastrMind.Views.InterpretationShow({
         model: interpretation,
-        belongsToCurrentUser: belongsToCurrentUser
+        belongsToCurrentUser: belongsToCurrentUser,
+        line: this.model
       });
     this.addSubview(".interpretations", interpretationsShow);
 

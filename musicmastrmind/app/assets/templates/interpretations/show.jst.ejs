@@ -1,6 +1,9 @@
 <%= interpretation.escape('body') %>
 <b> - <%= interpretation.creator().escape('username') %></b>
-<% if (belongsToCurrentUser) { %>
-  <button type="button" class="interpretation-delete btn">Delete</button>
-  <button type="button" class="interpretation-edit btn">Edit</button>
+<% if (belongsToCurrentUser && !turnOffButtons) { %>
+  <!-- TODO refactor this shit. buttons belong in seperate subview. turnOFfButtons, wtf is that. get it together-->
+  <button type="button" class="interpretation-delete-btn btn">Delete</button>
+  <button type="button" class="interpretation-edit-btn btn">Edit</button>
 <% } %>
+
+<div class="interpretation-edit"></div>
