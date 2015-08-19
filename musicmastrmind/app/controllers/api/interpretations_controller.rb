@@ -28,27 +28,21 @@ class Api::InterpretationsController < ApplicationController
 
   def update
     @interpretation = Interpretation.find(params[:id])
-    if @interpretation.creator == current_user
+    if user_permission?(@interpretation)
       if @interpretation.update(interpretation_params)
           render :show
       else
         render json: @interpretation.errors.full_messages,
           status: :unprocessable_entity
       end
-    else
-      render json: "can only update your own items",
-        status: :unprocessable_entity
     end
   end
 
   def destroy
     @interpretation = Interpretation.find(params[:id])
-    if @interpretation.creator == current_user
+    if user_permission?(@interpretation)
       @interpretation.destroy!
       render :show
-    else
-      render json: "can only delete your own items",
-        status: :unprocessable_entity
     end
   end
 
