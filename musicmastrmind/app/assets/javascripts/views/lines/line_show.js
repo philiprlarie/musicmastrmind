@@ -30,8 +30,10 @@ MusicMastrMind.Views.LineShow = Backbone.CompositeView.extend({
   },
 
   addInterpretation: function (interpretation) {
+    // TODO refactor all of this business. belongs in interpretation model
     var belongsToCurrentUser =
-      interpretation.creator().id == window.CURRENT_USER.id;
+      window.CURRENT_USER &&
+        interpretation.creator().id == window.CURRENT_USER.id;
     var interpretationsShow =
       new MusicMastrMind.Views.InterpretationShow({
         model: interpretation,
