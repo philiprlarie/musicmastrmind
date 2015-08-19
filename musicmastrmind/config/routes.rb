@@ -15,7 +15,7 @@ Rails.application.routes.draw do
       resources :interpretations, only: [:index]
     end
 
-    resources :interpretations, only: [:create, :show, :destory, :update]
+    resources :interpretations, only: [:create, :show, :destroy, :update]
   end
 
 end

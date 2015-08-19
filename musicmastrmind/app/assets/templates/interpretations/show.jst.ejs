@@ -1,7 +1,8 @@
 <%= interpretation.escape('body') %>
 <b> - <%= interpretation.creator().escape('username') %></b>
 <% if (belongsToCurrentUser) { %>
-  this belongs to current user
+  <button type="button" class="interpretation-delete btn">Delete</button>
+  <button type="button" class="interpretation-edit btn">Edit</button>
 <% } else { %>
   this doesn't belong to current user
 <% } %>

@@ -4,6 +4,13 @@ MusicMastrMind.Views.LineShow = Backbone.CompositeView.extend({
   className: 'line',
 
   initialize: function () {
+    // don't render anything until line is fetched
+    this.model.fetch({
+      success: this.handleFetchedLine.bind(this)
+    });
+  },
+
+  handleFetchedLine: function () {
     this.listenTo(this.model, "sync add remove", this.render);
 
     this.listenTo(
@@ -13,16 +20,14 @@ MusicMastrMind.Views.LineShow = Backbone.CompositeView.extend({
       this.model.interpretations(), "remove", this.removeInterpretation
     );
 
-    this.model.interpretations().each(this.addInterpretation.bind(this));
-    // this.addInterpretations();
+    this.addInterpretations();
   },
 
-  // addInterpretations: function () {
-  //   var view = this;
-  //   view.model.interpretations().each(function () {
-  //     view.addInterpretation.bind(view);
-  //   });
-  // },
+  addInterpretations: function () {
+    this.model.interpretations().each(this.addInterpretation.bind(this));
+
+    this.addNewForm(); // only adds from for new interpretation if signed in and user doesn't already have interpretation. else does nothing
+  },
 
   addInterpretation: function (interpretation) {
     var belongsToCurrentUser =
@@ -77,7 +82,6 @@ MusicMastrMind.Views.LineShow = Backbone.CompositeView.extend({
     });
 
     this.$el.html(renderedContent);
-    this.addNewForm(); // only adds from for new interpretation if signed in and user doesn't already have interpretation
     this.attachSubviews();
 
     return this;

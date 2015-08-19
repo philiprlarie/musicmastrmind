@@ -12,6 +12,20 @@ MusicMastrMind.Views.InterpretationShow = Backbone.View.extend({
 
   className: 'interpretation',
 
+  events: {
+    "click .interpretation-delete": "delete",
+    "click .interpretation-edit": "edit",
+  },
+
+  delete: function (event) {
+    event.preventDefault();
+    this.model.destroy();
+  },
+
+  edit: function () {
+    fail;
+  },
+
   render:  function () {
     var content = this.template({
       interpretation: this.model,
