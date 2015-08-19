@@ -8,6 +8,10 @@ MusicMastrMind.Collections.Lines = Backbone.Collection.extend({
     this.song = options.song;
   },
 
+  comparator: function(line) {
+    return line.get('order');
+  },
+
   getAndFetch: function(id) {
     var lines = this;
     var line = this.get(id);
