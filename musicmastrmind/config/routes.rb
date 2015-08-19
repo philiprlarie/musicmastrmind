@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     end
 
     resources :interpretations, only: [:create, :show, :destroy, :update]
+
+    resources :artists, only: [:create, :show, :destroy, :update, :index]
   end
 
 end
