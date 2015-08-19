@@ -5,7 +5,7 @@ MusicMastrMind.Views.LineShow = Backbone.CompositeView.extend({
 
   initialize: function () {
     // don't render anything until line is fetched
-    this.model.fetch({
+    this.model.fetch({ //TODO we are fetching twice. is that a huge deal? We could refactor our get and fetch method to have a method that is just get.
       success: this.handleFetchedLine.bind(this)
     });
   },
