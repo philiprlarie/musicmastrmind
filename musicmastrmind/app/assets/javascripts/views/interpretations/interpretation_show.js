@@ -27,7 +27,7 @@ MusicMastrMind.Views.InterpretationShow = Backbone.CompositeView.extend({
 
   edit: function () {
     event.preventDefault();
-    var interpretationEditView = new MusicMastrMind.Views.InterpretationNew({
+    var interpretationEditView = new MusicMastrMind.Views.InterpretationForm({
       model: this.model,
       line: this.line
     });

@@ -1,4 +1,4 @@
-  MusicMastrMind.Views.InterpretationNew = Backbone.View.extend({
+  MusicMastrMind.Views.InterpretationForm = Backbone.View.extend({
   template: JST['interpretations/form'],
   tagName: 'form',
   className: 'interpretation-form',
@@ -19,8 +19,6 @@
     return this;
   },
 
-  // TODO allow for editing of the current user's post
-  // TODO compare this way to enter a form with that from TrelloClone. What is the best way to enter a form? can you do new/edit at the same time?
   // TODO watch out for double form submit. disable submit button
   submit: function (event) {
     event.preventDefault();

@@ -72,7 +72,7 @@ MusicMastrMind.Views.LineShow = Backbone.CompositeView.extend({
     this.removeSubviews('.interpretations-new');
     if (window.CURRENT_USER && !this._currentUserHasInterpretation()) {
       var interpretationNewView =
-        new MusicMastrMind.Views.InterpretationNew({
+        new MusicMastrMind.Views.InterpretationForm({
           model: new MusicMastrMind.Models.Interpretation({
             line_id: this.model.id
           }),
