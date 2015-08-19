@@ -8,6 +8,5 @@ doesn't seem to route when you refresh page or get here by direclty typing in th
 Fetch a song then fetch attributes about the song. don't do this. instead fetch them all together. have rails give you nested response
 
 avoid N + 1 queries. instead do something like this
-# TODO ask is this an N + 1 query? we are also including interpretation creator later. better way to do this?
 @interpretations =
   Interpretation.includes(:creator).where("line_id = ?", @line.id)
