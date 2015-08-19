@@ -9,7 +9,7 @@
 #
 
 class Artist < ActiveRecord::Base
-  validates :title, :creator, presence: true
+  validates :name, presence: true
 
   has_many :songs
   # has_many :albums

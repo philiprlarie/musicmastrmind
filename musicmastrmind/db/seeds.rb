@@ -1,15 +1,5 @@
 # TODO add a ton of seed data. At least 5 albums for every genre
 
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
-
-#
 user1 = User.create({
   username: "user1",
   email: 'user1@gmail.com',
@@ -30,6 +20,11 @@ user4 = User.create({
   email: 'user4@gmail.com',
   password: 'password'
 })
+
+artist1 = Artist.create({ name: "The Beatles" })
+artist2 = Artist.create({ name: "Led Zeppelin" })
+artist3 = Artist.create({ name: "Arctic Monkies" })
+artist4 = Artist.create({ name: "Red Hot Chili Peppers" })
 
 song1 = Song.create({
   title: "Because",
@@ -92,17 +87,17 @@ interpretation2 = Interpretation.create({
   line_id: line1.id,
   creator_id: user3.id
 })
-interpretation2 = Interpretation.create({
+interpretation3 = Interpretation.create({
   body: "Great line!",
   line_id: line1.id,
   creator_id: user1.id
 })
-interpretation2 = Interpretation.create({
+interpretation4 = Interpretation.create({
   body: "Very great line!!",
   line_id: line1.id,
   creator_id: user4.id
 })
-interpretation2 = Interpretation.create({
+interpretation5 = Interpretation.create({
   body: "The wind is the high one now?",
   line_id: line2.id,
   creator_id: user3.id
