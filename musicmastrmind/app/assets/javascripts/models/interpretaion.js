@@ -4,6 +4,9 @@ MusicMastrMind.Models.Interpretation = Backbone.Model.extend({
   parse: function (response) {
     if (response.creator) {
       this.creator().set(response.creator, { parse: true });
+      if (window.CURRENT_USER && CURRENT_USER.id == response.creator_id) {
+        this.belongsToCurrentUser = true;
+      }
       delete response.creator;
     }
 

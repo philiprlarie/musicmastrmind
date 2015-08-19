@@ -3,8 +3,6 @@ MusicMastrMind.Views.InterpretationShow = Backbone.CompositeView.extend({
     this.line = options.line;
     this.listenTo(this.model, "sync add remove", this.render);
     this.listenTo(this.model.creator(), "sync", this.render);
-    // TODO refactor this. This should probably be a property of the interpretation model
-    this.belongsToCurrentUser = options.belongsToCurrentUser;
     this.turnOffButtons = false;
   },
 
@@ -45,7 +43,6 @@ MusicMastrMind.Views.InterpretationShow = Backbone.CompositeView.extend({
   render:  function () {
     var content = this.template({
       interpretation: this.model,
-      belongsToCurrentUser: this.belongsToCurrentUser,
       turnOffButtons: this.turnOffButtons
     });
     this.$el.html(content);
