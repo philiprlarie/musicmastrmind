@@ -14,11 +14,11 @@ MusicMastrMind.Views.SongsAll = Backbone.CompositeView.extend({
   addSongsIndex: function () {
     this.removeSubviews('.songs-all');
     var songs = new MusicMastrMind.Collections.Songs();
-    songs.fetch({ data: { all: true } });
-    
+
     var songsIndex =
       new MusicMastrMind.Views.SongsIndex({
-        collection: songs
+        collection: songs,
+        fetchOptions: { reset: true, data: { all: true } }
       });
     this.addSubview(".songs-all", songsIndex);
   },

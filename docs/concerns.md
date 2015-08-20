@@ -10,3 +10,5 @@ Fetch a song then fetch attributes about the song. don't do this. instead fetch 
 avoid N + 1 queries. instead do something like this
 @interpretations =
   Interpretation.includes(:creator).where("line_id = ?", @line.id)
+
+when fetching a whole collection, pass option { reset: true } this will prevent an add event from being fired for every model added to collection.

@@ -1,20 +1,20 @@
 MusicMastrMind.Models.Song = Backbone.Model.extend({
   urlRoot: "/api/songs",
 
-  parse: function (response) {
+  parse: function (response, options) {
     if (response.lines) {
       this.lines().set(response.lines, { parse: true });
       delete response.lines;
     }
     if (response.creator) {
-      this.creator().set(response.creator, { parse: true });
+      this.creator().set(response.creator);
       if (window.CURRENT_USER && CURRENT_USER.id == response.creator_id) {
         this.belongsToCurrentUser = true;
       }
       delete response.creator;
     }
     if (response.artist) {
-      this.artist().set(response.artist, { parse: true });
+      this.artist().set(response.artist); // doesn't parse models
       delete response.artist;
     }
 

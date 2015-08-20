@@ -1,6 +1,13 @@
 MusicMastrMind.Views.SongsIndex = Backbone.View.extend({
   initialize: function (options) {
     this.listenTo(this.collection, "sync add remove", this.render);
+    if (options.fetchOptions) {
+      this.collection.fetch(options.fetchOptions);
+    } else {
+      this.collection.fetch();
+    }
+
+    // show artist unless told not to
     if (typeof(options.suppressArtist) === 'undefined') {
       this.suppressArtist = false;
     } else {
