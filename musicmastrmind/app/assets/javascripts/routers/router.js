@@ -7,7 +7,7 @@ MusicMastrMind.Routers.Router = Backbone.Router.extend({
 
   routes: {
     "": "LandingPage",
-    "songs/index": "SongsIndex", // TODO doesn't really belong. for developement
+    "songs/all": "SongsAll",
     "songs/:id": "SongShow",
     "artists/all": "ArtistsAll",
     "artists/index/:letter": "ArtistsIndexByLetter",
@@ -18,10 +18,10 @@ MusicMastrMind.Routers.Router = Backbone.Router.extend({
     this.$rootEl.html("");
   },
 
-  SongsIndex: function () { // TODO get rid of this route.
+  SongsAll: function () {
     var songs = new MusicMastrMind.Collections.Songs();
     songs.fetch({ data: { all: true } });
-    var view = new MusicMastrMind.Views.SongsIndex({ collection: songs });
+    var view = new MusicMastrMind.Views.SongsAll({ collection: songs });
     this._swapView(view);
   },
 

@@ -1,7 +1,7 @@
-MusicMastrMind.Views.ArtistsAll = Backbone.CompositeView.extend({
-  template: JST['artists/all'],
+MusicMastrMind.Views.SongsAll = Backbone.CompositeView.extend({
+  template: JST['songs/all'],
 
-  className: 'artistsAll group',
+  className: 'songsAll group',
 
   initialize: function () {
     this.listenTo(this.collection, "sync add remove", this.render);
@@ -10,16 +10,16 @@ MusicMastrMind.Views.ArtistsAll = Backbone.CompositeView.extend({
   },
 
   addSubviews: function () {
-    this.addArtistsIndex();
+    this.addSongsIndex();
   },
 
-  addArtistsIndex: function () {
-    this.removeSubviews('.artists-all');
-    var artistsIndex =
-      new MusicMastrMind.Views.ArtistsIndex({
+  addSongsIndex: function () {
+    this.removeSubviews('.songs-all');
+    var songsIndex =
+      new MusicMastrMind.Views.SongsIndex({
         collection: this.collection
       });
-    this.addSubview(".artists-all", artistsIndex);
+    this.addSubview(".songs-all", songsIndex);
   },
 
   render:  function () {
