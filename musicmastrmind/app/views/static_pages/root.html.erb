@@ -14,14 +14,9 @@
   <% end %>
 </script>
 
-<!-- TODO remove this, just for Developement -->
-<!-- <script>
-  window.song1 = new MusicMastrMind.Models.Song({id: 1});
-  song1.fetch();
-  window.lines1 = new MusicMastrMind.Collections.Lines([], {song: song1});
-  lines1.fetch();
-  window.line1 = lines1.getOrFetch(1);
-  window.interpretations1 = new MusicMastrMind.Collections.Interpretations([], {line: line1});
-  interpretations1.fetch();
-  window.interpretation1 = interpretations1.getOrFetch(1);
-</script> -->
+<!-- TODO spinner test -->
+<div id="loading"></div>
+<script>
+  var spinner = new Spinner().spin()
+  $('#loading').append(spinner.el)
+</script>
