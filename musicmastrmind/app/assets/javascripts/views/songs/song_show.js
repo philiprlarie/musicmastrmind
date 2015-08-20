@@ -22,9 +22,8 @@ MusicMastrMind.Views.SongShow = Backbone.CompositeView.extend({
   },
 
 
-  
+
   render:  function () {
-    var view = this;
     var content = this.template({
       song: this.model,
       creator: this.model.creator()

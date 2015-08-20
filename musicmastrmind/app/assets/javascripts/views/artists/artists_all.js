@@ -23,7 +23,6 @@ MusicMastrMind.Views.ArtistsAll = Backbone.CompositeView.extend({
   },
 
   render:  function () {
-    var view = this;
     var content = this.template();
     this.$el.html(content);
     this.attachSubviews(); // subviews $els get put into the dom. subviews are already rendered

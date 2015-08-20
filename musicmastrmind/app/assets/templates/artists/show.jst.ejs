@@ -2,10 +2,4 @@
 
 
 <h4>Songs By <%= artist.escape('name') %></h4>
-<ul class="artist-songs">
-  <% artist.songs().each(function (song) { %>
-    <li>
-      <div class="artist-lyric" data-song-id="<%= song.escape('id') %>"><%= song.escape('title') %></div>
-    </li>
-  <% }); %>
-</ul>
+<div class="artist-songs"></div>

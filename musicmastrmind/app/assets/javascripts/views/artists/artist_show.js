@@ -5,9 +5,7 @@ MusicMastrMind.Views.ArtistShow = Backbone.CompositeView.extend({
 
   initialize: function () {
     this.listenTo(this.model, "sync", this.render);
-    this.listenTo(this.model.songs(), "sync", this.addSongsIndex);
-
-    this.addSubviews();
+    this.model.fetch({ success: this.addSubviews.bind(this) });
   },
 
   addSubviews: function () {
@@ -18,13 +16,13 @@ MusicMastrMind.Views.ArtistShow = Backbone.CompositeView.extend({
     this.removeSubviews('.artist-songs');
     var songsIndex =
       new MusicMastrMind.Views.SongsIndex({
-        collection: this.model.songs()
+        collection: this.model.songs(),
+        suppressArtist: true
       });
     this.addSubview(".artist-songs", songsIndex);
   },
 
   render:  function () {
-    var view = this;
     var content = this.template({
       artist: this.model,
     });

@@ -1,6 +1,7 @@
 MusicMastrMind.Routers.Router = Backbone.Router.extend({
   initialize: function (options) {
     this.$rootEl = options.$rootEl;
+    // TODO do we need these?
     this.songs = new MusicMastrMind.Collections.Songs();
     this.artists = new MusicMastrMind.Collections.Artists();
   },
@@ -46,7 +47,7 @@ MusicMastrMind.Routers.Router = Backbone.Router.extend({
   },
 
   ArtistShow: function (id) {
-    var artist = this.artists.getAndFetch(id);
+    var artist = new MusicMastrMind.Models.Artist({ id: id });
     var view = new MusicMastrMind.Views.ArtistShow({ model: artist });
     this._swapView(view);
   },

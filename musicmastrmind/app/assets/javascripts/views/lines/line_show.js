@@ -70,7 +70,6 @@ MusicMastrMind.Views.LineShow = Backbone.CompositeView.extend({
 
 
   render: function () {
-    var view = this;
     var renderedContent = this.template({
       line: this.model
     });
