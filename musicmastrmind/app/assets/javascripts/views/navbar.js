@@ -8,7 +8,7 @@ MusicMastrMind.Views.Navbar = Backbone.View.extend({
 
   handleRoute: function (route, params) {
     this.$(".active").removeClass("active");
-    this.$("." + route).addClass("active");
+    this.$(".navbar-" + route).addClass("active");
   },
 
   render: function () {

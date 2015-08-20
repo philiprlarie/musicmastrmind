@@ -14,7 +14,7 @@ MusicMastrMind.Views.ArtistShow = Backbone.CompositeView.extend({
     this.addSongsIndex();
   },
 
-  addSongsIndex: function (interpretation) {
+  addSongsIndex: function () {
     this.removeSubviews('.artist-songs');
     var songsIndex =
       new MusicMastrMind.Views.SongsIndex({
