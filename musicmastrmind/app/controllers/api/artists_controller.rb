@@ -60,8 +60,8 @@ class Api::ArtistsController < ApplicationController
   end
 
   def get_collection
-    return Artist.all
-    # TODO search by artist first letter
+    return Artist.all if params[:all]
+    Artist.where("upper(name) LIKE ?", params[:letter].upcase + '%') if params[:letter]
   end
 
 end

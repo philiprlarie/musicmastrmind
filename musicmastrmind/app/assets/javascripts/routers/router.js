@@ -7,7 +7,9 @@ MusicMastrMind.Routers.Router = Backbone.Router.extend({
   routes: {
     "": "LandingPage",
     "songs/index": "SongsIndex", // TODO doesn't really belong. for developement
-    "songs/:id": "SongShow"
+    "songs/:id": "SongShow",
+    "artists/index/all": "ArtistsIndex",
+    "artists/index/:letter": "ArtistsIndexByLetter"
   },
 
   LandingPage: function () {
@@ -27,6 +29,19 @@ MusicMastrMind.Routers.Router = Backbone.Router.extend({
     this._swapView(view);
   },
 
+  ArtistsIndex: function () {
+    var artists = new MusicMastrMind.Collections.Artists();
+    artists.fetch({ data: { all: true } });
+    var view = new MusicMastrMind.Views.ArtistsIndex({ collection: artists });
+    this._swapView(view);
+  },
+
+  ArtistsIndexByLetter: function (letter) {
+    var artists = new MusicMastrMind.Collections.Artists();
+    artists.fetch({ data: { letter: letter } });
+    var view = new MusicMastrMind.Views.ArtistsIndex({ collection: artists });
+    this._swapView(view);
+  },
 
 
   _swapView: function (view) {

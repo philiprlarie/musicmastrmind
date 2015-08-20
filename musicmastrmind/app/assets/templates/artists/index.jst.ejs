@@ -1,0 +1,11 @@
+<!-- TODO this title -->
+<h2>Some artists, fix this title</h2>
+<ul>
+  <% artists.each( function (artist) { %>
+    <li>
+      <a href="#/artists/<%= artist.id %>">
+        <%= artist.escape('name') %>
+      </a>
+    </li>
+  <% }); %>
+</ul>
