@@ -25,7 +25,7 @@ MusicMastrMind.Routers.Router = Backbone.Router.extend({
   },
 
   SongShow: function (id) {
-    var song = this.songs.getAndFetch(id);
+    var song = new MusicMastrMind.Models.Song({ id: id });
     var view = new MusicMastrMind.Views.SongShow({ model: song });
     this._swapView(view);
   },
