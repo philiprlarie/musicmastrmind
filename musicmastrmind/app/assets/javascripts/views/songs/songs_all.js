@@ -4,8 +4,6 @@ MusicMastrMind.Views.SongsAll = Backbone.CompositeView.extend({
   className: 'songsAll group',
 
   initialize: function () {
-    this.listenTo(this.collection, "sync add remove", this.render);
-
     this.addSubviews();
   },
 
@@ -15,9 +13,12 @@ MusicMastrMind.Views.SongsAll = Backbone.CompositeView.extend({
 
   addSongsIndex: function () {
     this.removeSubviews('.songs-all');
+    var songs = new MusicMastrMind.Collections.Songs();
+    songs.fetch({ data: { all: true } });
+    
     var songsIndex =
       new MusicMastrMind.Views.SongsIndex({
-        collection: this.collection
+        collection: songs
       });
     this.addSubview(".songs-all", songsIndex);
   },

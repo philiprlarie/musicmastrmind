@@ -68,9 +68,13 @@ class Api::SongsController < ApplicationController
   end
 
   def get_collection
-    return Song.all if params[:all] # TODO probably should remove this at some point
-    return Song.where(album_id: params[:album_id]) if params[:album_id]
-    return Song.where(artist_id: params[:artist_id]) if params[:artist_id]
+    return Song.all.includes(:artist) if params[:all] # TODO probably should remove this at some point
+    if params[:album_id]
+      return Song.where(album_id: params[:album_id]).includes(:artist)
+    end
+    if params[:artist_id]
+      return Song.where(artist_id: params[:artist_id]).includes(:artist)
+    end
   end
 
 end

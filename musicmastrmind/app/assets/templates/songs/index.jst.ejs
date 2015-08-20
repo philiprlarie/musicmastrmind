@@ -4,6 +4,9 @@
       <a href="#/songs/<%= song.id %>">
         <%= song.escape('title') %>
       </a>
+      <% if (!suppressArtist) { %>
+ - <a href="#/artists/<%= song.escape('artist_id') %>"><%= song.artist().escape('name') %></a>
+      <% } %>
     </li>
   <% }); %>
 </ul>

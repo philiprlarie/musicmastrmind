@@ -19,9 +19,7 @@ MusicMastrMind.Routers.Router = Backbone.Router.extend({
   },
 
   SongsAll: function () {
-    var songs = new MusicMastrMind.Collections.Songs();
-    songs.fetch({ data: { all: true } });
-    var view = new MusicMastrMind.Views.SongsAll({ collection: songs });
+    var view = new MusicMastrMind.Views.SongsAll();
     this._swapView(view);
   },
 

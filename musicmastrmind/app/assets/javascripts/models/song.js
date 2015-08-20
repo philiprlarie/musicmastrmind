@@ -13,6 +13,10 @@ MusicMastrMind.Models.Song = Backbone.Model.extend({
       }
       delete response.creator;
     }
+    if (response.artist) {
+      this.artist().set(response.artist, { parse: true });
+      delete response.artist;
+    }
 
     return response;
   },
@@ -31,5 +35,13 @@ MusicMastrMind.Models.Song = Backbone.Model.extend({
     }
 
     return this._creator;
-  }
+  },
+
+  artist: function () {
+    if (!this._artist) {
+      this._artist = new MusicMastrMind.Models.Artist();
+    }
+
+    return this._artist;
+  },
 });

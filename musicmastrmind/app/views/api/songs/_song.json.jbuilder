@@ -14,3 +14,10 @@ unless creator.nil?
     json.partial!("api/users/user", user: creator)
   end
 end
+
+artist ||= nil
+unless artist.nil?
+  json.artist do
+    json.partial!("api/artists/artist", artist: artist)
+  end
+end
