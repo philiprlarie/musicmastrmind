@@ -8,13 +8,11 @@ MusicMastrMind.Collections.Interpretations = Backbone.Collection.extend({
     this.line = options.line;
   },
 
-  getAndFetch: function(id) {
+  getOrFetch: function(id) {
     var interpretations = this;
     var interpretation = this.get(id);
 
-    if (interpretation) {
-      interpretation.fetch();
-    } else {
+    if (!interpretation) {
       interpretation = new MusicMastrMind.Models.Interpretation({ id: id });
       interpretations.add(interpretation);
       interpretation.fetch({

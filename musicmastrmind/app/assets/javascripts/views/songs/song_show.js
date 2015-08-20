@@ -17,7 +17,7 @@ MusicMastrMind.Views.SongShow = Backbone.CompositeView.extend({
     event.preventDefault();
     this.removeSubviews('.line-show');
     var target = $(event.currentTarget);
-    var line = this.model.lines().getAndFetch(target.data('line-id'));
+    var line = this.model.lines().getOrFetch(target.data('line-id'));
     var lineShow = new MusicMastrMind.Views.LineShow({ model: line });
     this.addSubview(".line-show", lineShow); // this is where subviews are rendered
   },

@@ -12,13 +12,11 @@ MusicMastrMind.Collections.Lines = Backbone.Collection.extend({
     return line.get('order');
   },
 
-  getAndFetch: function(id) {
+  getOrFetch: function(id) {
     var lines = this;
     var line = this.get(id);
 
-    if (line) {
-      line.fetch();
-    } else {
+    if (!line) {
       line = new MusicMastrMind.Models.Line({ id: id });
       lines.add(line);
       line.fetch({

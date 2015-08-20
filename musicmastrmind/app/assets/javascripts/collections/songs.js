@@ -2,13 +2,11 @@ MusicMastrMind.Collections.Songs = Backbone.Collection.extend({
   url: "/api/songs",
   model: MusicMastrMind.Models.Song,
 
-  getAndFetch: function(id) {
+  getOrFetch: function(id) {
     var songs = this;
     var song = this.get(id);
 
-    if (song) {
-      song.fetch();
-    } else {
+    if (!song) {
       song = new MusicMastrMind.Models.Song({ id: id });
       songs.add(song);
       song.fetch({

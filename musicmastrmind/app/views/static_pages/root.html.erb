@@ -20,8 +20,8 @@
   song1.fetch();
   window.lines1 = new MusicMastrMind.Collections.Lines([], {song: song1});
   lines1.fetch();
-  window.line1 = lines1.getAndFetch(1);
+  window.line1 = lines1.getOrFetch(1);
   window.interpretations1 = new MusicMastrMind.Collections.Interpretations([], {line: line1});
   interpretations1.fetch();
-  window.interpretation1 = interpretations1.getAndFetch(1);
+  window.interpretation1 = interpretations1.getOrFetch(1);
 </script> -->
