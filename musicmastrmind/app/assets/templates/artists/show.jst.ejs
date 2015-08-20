@@ -1,0 +1,11 @@
+<div class="artist-primary">
+  <h2 class="artist-name"><%= artist.escape('name') %></h2>
+
+  <ul class="artist-songs">
+    <% artist.songs().each(function (song) { %>
+      <li>
+        <div class="artist-lyric" data-song-id="<%= song.escape('id') %>"><%= song.escape('title') %></div>
+      </li>
+    <% }); %>
+  </ul>
+</div>
