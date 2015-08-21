@@ -1,0 +1,36 @@
+<form class="song-new-form">
+  <label>
+    Song Title *<br/>
+    <input type="text"
+      name="song[title]"
+      value="<%= song.escape("body") %>">
+  </label>
+  <br/>
+
+  <label>
+    Artist *<br/>
+    <input type="text"
+      name="song[artist_name]"
+      value="<%= song.escape("artist_name") %>">
+  </label>
+  <br/>
+
+  <label>
+    Album Title *<br/>
+    <input type="text"
+      name="song[album_title]"
+      value="<%= song.escape("album_title") %>">
+  </label>
+  <br/>
+
+  <label>
+    Track Number *<br/>
+    <input type="number"
+      name="song[track_number]"
+      value="<%= song.escape("track_number") %>"
+      min="1">
+  </label>
+  <br/>
+
+  <input type="submit" value="Create">
+</form>

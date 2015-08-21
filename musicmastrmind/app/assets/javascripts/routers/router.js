@@ -9,6 +9,7 @@ MusicMastrMind.Routers.Router = Backbone.Router.extend({
   routes: {
     "": "LandingPage",
     "songs/all": "SongsAll",
+    "songs/new": "SongNew",
     "songs/:id": "SongShow",
     "artists/all": "ArtistsAll",
     "artists/index/:letter": "ArtistsIndexByLetter",
@@ -21,6 +22,12 @@ MusicMastrMind.Routers.Router = Backbone.Router.extend({
 
   SongsAll: function () {
     var view = new MusicMastrMind.Views.SongsAll();
+    this._swapView(view);
+  },
+
+  SongNew: function () {
+    var song = new MusicMastrMind.Models.Song();
+    var view = new MusicMastrMind.Views.SongNew({ model: song });
     this._swapView(view);
   },
 
