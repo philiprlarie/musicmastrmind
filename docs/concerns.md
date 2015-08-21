@@ -12,3 +12,8 @@ avoid N + 1 queries. instead do something like this
   Interpretation.includes(:creator).where("line_id = ?", @line.id)
 
 when fetching a whole collection, pass option { reset: true } this will prevent an add event from being fired for every model added to collection.
+
+
+
+var spinner = new Spinner().spin()
+$('h1').append(spinner.el)

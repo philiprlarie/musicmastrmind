@@ -9,7 +9,7 @@
   },
 
   events: {
-    'submit': 'submit'
+    "click .interpretation-form-submit": "submit",
   },
 
   render: function () {
@@ -24,22 +24,31 @@
   // TODO when the submit button for a edit, imediattely changes view without waiting for server response
   submit: function (event) {
     event.preventDefault();
+
     if (this.submitDisabled) { // preventing double submit
       return "waiting for previous submit. hold your horses";
     }
     this.submitDisabled = true;
 
-    var view = this;
-    var params = $(event.currentTarget).serializeJSON();
-    this.model.set("body", params.interpretation.body);
+    this.$(".interpretation-form-errors").empty();
+    var spinner = new Spinner().spin();
+    this.$(".interpretation-form-submit").append(spinner.el);
 
+    var params = this.$el.serializeJSON();
+    var view = this;
+    this.model.set("body", params.interpretation.body);
     this.model.save({}, {
       success: function () {
         view.line.interpretations().add(view.model);
-        this.submitDisabled = false;
+        view.submitDisabled = false;
       },
-      error: function () {
-        this.submitDisabled = false;
+      error: function (model, resp, options) {
+        view.submitDisabled = false;
+        view.$(".interpretation-form-submit").find(".spinner").remove();
+        var errors = jQuery.parseJSON(resp.responseText);
+        _.each(errors, function (error) {
+          this.$(".interpretation-form-errors").append("<li> *" + error + "</li>");
+        });
       }
     });
   }

@@ -5,6 +5,7 @@ class Api::InterpretationsController < ApplicationController
   end
 
   def create
+    sleep 3
     @interpretation = Interpretation.new(interpretation_params)
     @interpretation.creator_id = current_user.id
     @creator = @interpretation.creator
@@ -27,6 +28,7 @@ class Api::InterpretationsController < ApplicationController
   end
 
   def update
+    sleep 3
     @interpretation = Interpretation.find(params[:id])
     if user_permission?(@interpretation)
       if @interpretation.update(interpretation_params)

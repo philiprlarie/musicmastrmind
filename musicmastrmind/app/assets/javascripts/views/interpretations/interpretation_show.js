@@ -1,8 +1,7 @@
 MusicMastrMind.Views.InterpretationShow = Backbone.CompositeView.extend({
   initialize: function (options) {
     this.line = options.line;
-    this.listenTo(this.model, "sync add remove", this.render);
-    this.listenTo(this.model.creator(), "sync", this.render);
+    this.listenTo(this.model, "sync", this.render);
     this.turnOffButtons = false;
   },
 
