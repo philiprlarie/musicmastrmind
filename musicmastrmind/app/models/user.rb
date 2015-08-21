@@ -26,11 +26,6 @@ class User < ActiveRecord::Base
   has_many :interpretations,
     foreign_key: :creator_id
 
-  # TODO add relations when more database tables are added
-
-  # has_many :song_comments
-  # has_many :line_comments
-
   # TODO make this work. will need a database column for this data
   def is_moderator?
     return false

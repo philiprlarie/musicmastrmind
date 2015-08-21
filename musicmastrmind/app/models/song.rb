@@ -14,8 +14,7 @@
 #
 
 class Song < ActiveRecord::Base
-  validates :title, :creator, :artist, :album, presence: true
-  validates :track_number, uniqueness: { scope: :album_id }
+  validates :title, :creator, :artist, presence: true
 
   belongs_to :creator, class_name: :User
 
@@ -23,9 +22,5 @@ class Song < ActiveRecord::Base
   belongs_to :album
 
   has_many :lines
-  
-  # TODO add validations and relations when more database tables are added
-  # has_many :comments
-  # has_many :genres, through: :genre_taggings, source: :genre
 
 end

@@ -81,10 +81,17 @@ class Api::SongsController < ApplicationController
   def validate_form_data(form_data)
     # {"title"=>"Octopus's Garden", "artist_name"=>"The Beatles", "album_title"=>"Abbey Road", "track_number"=>"5"}
     debugger
+    # set the artist and album to true so they can pass validation. If everything else passes validation, but the artist or album don't exist yet, we will create the new artist/album.
     @song = Song.new()
     @song.title = form_data["title"]
-    @song.artist_id = Artist.find_by_name(form_data["artist_name"]).id
-    @song.album_id = Album.find_by_title(form_data["album_title"]).id # TODO add albums
+    artist = Artist.find_by_name(form_data["artist_name"])
+    if artist
+      album = artist.albums.find_by_name(form_data["album_title"])
+      if !album
+        album = Album.new()
+    else
+      artist = new Artist({ name: form_data["artist_name"] })
+    album = Album.find_by_title(form_data["album_title"]).where()
 
     @song.track_number = form_data["track_number"].to_i
     fail
