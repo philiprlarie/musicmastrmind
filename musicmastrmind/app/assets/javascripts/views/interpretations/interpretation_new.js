@@ -20,8 +20,6 @@
     return this;
   },
 
-  // TODO consider adding an hourglass or something while waiting for response
-  // TODO when the submit button for a edit, imediattely changes view without waiting for server response
   submit: function (event) {
     event.preventDefault();
 

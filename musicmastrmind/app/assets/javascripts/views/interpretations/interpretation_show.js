@@ -1,7 +1,7 @@
 MusicMastrMind.Views.InterpretationShow = Backbone.CompositeView.extend({
   initialize: function (options) {
     this.line = options.line;
-    this.listenTo(this.model, "sync", this.render);
+    this.listenTo(this.model, "sync", this.turnOffFormAndRender);
     this.turnOffButtons = false;
   },
 
@@ -13,8 +13,7 @@ MusicMastrMind.Views.InterpretationShow = Backbone.CompositeView.extend({
 
   events: {
     "click .interpretation-delete-btn": "delete",
-    "click .interpretation-edit-btn": "edit",
-    "submit .interpretation-form": "submit"
+    "click .interpretation-edit-btn": "edit"
   },
 
   delete: function (event) {
@@ -33,7 +32,7 @@ MusicMastrMind.Views.InterpretationShow = Backbone.CompositeView.extend({
     this.render();
   },
 
-  submit: function () {
+  turnOffFormAndRender: function () {
     this.removeSubviews('.interpretation-edit');
     this.turnOffButtons = false;
     this.render();
