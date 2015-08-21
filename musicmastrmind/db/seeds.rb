@@ -26,12 +26,14 @@ artist2 = Artist.create({ name: "Led Zeppelin" })
 artist3 = Artist.create({ name: "Arctic Monkies" })
 artist4 = Artist.create({ name: "Red Hot Chili Peppers" })
 
+album1 = Album.create({ title: "Abbey Road", release_year: 1969, image_url: "http://d817ypd61vbww.cloudfront.net/sites/default/files/styles/media_responsive_widest/public/tile/image/original_593.jpg?itok=lhwAxXPe", artist_id: artist1.id })
+
 song1 = Song.create({
   title: "Because",
   writer: 'Lennon–McCartney',
   creator_id: user1.id,
   artist_id: 1,
-  album_id: 1,
+  album_id: album1.id,
   track_number: 8
 })
 song2 = Song.create({
@@ -39,7 +41,7 @@ song2 = Song.create({
   writer: 'George Harrison',
   creator_id: user1.id,
   artist_id: 1,
-  album_id: 1,
+  album_id: album1.id,
   track_number: 2
 })
 song3 = Song.create({
@@ -47,7 +49,7 @@ song3 = Song.create({
   writer: "Lennon–McCartney",
   creator_id: user2.id,
   artist_id: 1,
-  album_id: 1,
+  album_id: album1.id,
   track_number: 3
 })
 

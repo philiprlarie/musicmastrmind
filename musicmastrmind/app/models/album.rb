@@ -12,7 +12,7 @@
 #
 
 class Album < ActiveRecord::Base
-  validates :name, :release_year, :image_url, :artist, presence: true
+  validates :title, :release_year, :image_url, :artist, presence: true
 
   has_many :songs
   belongs_to :artist

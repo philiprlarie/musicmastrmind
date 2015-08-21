@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20150821183907) do
   enable_extension "plpgsql"
 
   create_table "albums", force: :cascade do |t|
-    t.string   "name",         null: false
+    t.string   "title",        null: false
     t.integer  "release_year", null: false
     t.string   "image_url",    null: false
     t.integer  "artist_id",    null: false
