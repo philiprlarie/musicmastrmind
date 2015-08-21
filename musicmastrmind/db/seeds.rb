@@ -51,7 +51,6 @@ song3 = Song.create({
   track_number: 3
 })
 
-
 line1 = Line.create({
   body: "Because the world is round it turns me on
 Because the world is round",
