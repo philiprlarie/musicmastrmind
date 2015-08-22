@@ -5,6 +5,7 @@ MusicMastrMind.Views.SongNew = Backbone.CompositeView.extend({
 
   initialize: function () {
     this.listenTo(this.model.lines(), "add remove", this.addLine);
+    this.submitDisabled = false;
     this.addSubviews();
   },
 
@@ -46,10 +47,18 @@ MusicMastrMind.Views.SongNew = Backbone.CompositeView.extend({
   submit: function (event) {
     event.preventDefault();
 
-    var params = this.$(".song-new-form").serializeJSON();
-    this.model.set("form_data", params.input);
+    if (this.submitDisabled) { // preventing double submit
+      return "waiting for previous submit. hold your horses";
+    }
+    this.submitDisabled = true;
 
+    this.$(".song-form-errors").empty();
+    var spinner = new Spinner().spin();
+    this.$(".song-form-submit").append(spinner.el);
+
+    var params = this.$(".song-new-form").serializeJSON();
     var view = this;
+    this.model.set("form_data", params.input);
     this.model.save({}, {
       success: function() {
         Backbone.history.navigate(
@@ -57,8 +66,14 @@ MusicMastrMind.Views.SongNew = Backbone.CompositeView.extend({
           { trigger: true }
         );
       },
-      error: function () {
-        debugger;
+      error: function (model, resp, options) {
+        view.submitDisabled = false;
+        view.$(".song-form-submit").find(".spinner").remove();
+        var errors = jQuery.parseJSON(resp.responseText);
+        _.each(errors, function (error) {
+          this.$(".song-form-errors").append("<li> *" + error + "</li>");
+        });
+        this.$('.song-new-form-name').focus();
       }
     });
   },
@@ -70,7 +85,7 @@ MusicMastrMind.Views.SongNew = Backbone.CompositeView.extend({
       song: this.model,
     });
     this.$el.html(content);
-    this.attachSubviews(); // subviews $els get put into the dom. subviews are already rendered
+    this.attachSubviews();
     this.$('.song-new-form-name').focus();
     return this;
   }

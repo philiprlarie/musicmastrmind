@@ -1,3 +1,11 @@
+<% if (song.isNew()) { %>
+  <h3>New Song</h3>
+<% } else { %>
+  <h3>Edit Song</h3>
+<% } %>
+
+
+<ul class="song-form-errors"></ul>
 <form class="song-new-form">
   <label>
     Song Title *<br/>

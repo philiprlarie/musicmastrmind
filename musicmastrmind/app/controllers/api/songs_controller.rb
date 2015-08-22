@@ -1,6 +1,5 @@
 class Api::SongsController < ApplicationController
   def create
-
     if validate_form_data(params[:form_data])
       render :show
     else
@@ -87,23 +86,28 @@ class Api::SongsController < ApplicationController
     artist ||= Artist.new({ name: song_data["artist_name"] })
     @song.artist = artist
 
-    lines_data.each_with_index do |line, idx|
-      new_line = Line.new({ body: line["body"], order: idx + 1 })
-      new_line.song = @song
-      @song.lines << new_line
+    @errors = []
+
+    if !lines_data
+      @errors += ["Song must have at least 1 line"] if @song.lines.empty?
+    else
+      lines_data.each_with_index do |line, idx|
+        new_line = Line.new({ body: line["body"], order: idx + 1 })
+        new_line.song = @song
+        @song.lines << new_line
+      end
     end
 
-    errors = []
     artist.valid?
-    errors += artist.errors.full_messages
+    @errors += artist.errors.full_messages
     @song.valid?
-    errors += @song.errors.full_messages
+    @errors += @song.errors.full_messages
     @song.lines.each do |line|
       line.valid?
-      errors += line.errors.full_messages
+      @errors += line.errors.full_messages
     end
 
-    if errors.empty?
+    if @errors.empty?
       @song.save
       return true
     else
