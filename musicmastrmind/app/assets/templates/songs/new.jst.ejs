@@ -2,35 +2,30 @@
   <label>
     Song Title *<br/>
     <input type="text"
-      name="song[title]"
-      value="<%= song.escape("body") %>">
+      name="input[song][title]"
+      value="<%= song.escape("title") %>">
   </label>
   <br/>
 
   <label>
     Artist *<br/>
     <input type="text"
-      name="song[artist_name]"
+      name="input[song][artist_name]"
       value="<%= song.escape("artist_name") %>">
   </label>
-  <br/>
 
-  <label>
-    Album Title *<br/>
-    <input type="text"
-      name="song[album_title]"
-      value="<%= song.escape("album_title") %>">
-  </label>
-  <br/>
+  <% song.lines().each( function(line, index) { %>
+    <br/>
+    <label>
+      Line <%= index + 1 %><br/>
+      <textarea name="input[lines][<%= index %>][body]"><%= line.escape("body") %></textarea>
+    </label>
 
-  <label>
-    Track Number *<br/>
-    <input type="number"
-      name="song[track_number]"
-      value="<%= song.escape("track_number") %>"
-      min="1">
-  </label>
+  <% }) %>
   <br/>
-
-  <input type="submit" value="Create">
 </form>
+
+<div class="line-new"></div>
+
+<br/>
+<button type="button" class="song-form-submit btn">Create Song</button>

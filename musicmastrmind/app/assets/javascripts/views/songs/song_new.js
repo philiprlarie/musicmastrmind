@@ -4,24 +4,49 @@ MusicMastrMind.Views.SongNew = Backbone.CompositeView.extend({
   className: 'songNew group',
 
   initialize: function () {
-    this.listenTo(this.model, "sync", this.render); // ?
-    this.listenTo(this.model.creator(), "sync", this.render);
-    this.model.input_data = {};
+    this.listenTo(this.model.lines(), "add", this.addLine);
+    this.addSubviews();
+  },
+
+  addSubviews: function () {
+    this.newLineForm();
   },
 
   events: {
-    "submit .song-new-form": "submit"
+    "click .song-form-submit": "submit"
   },
+
+  addLine: function () {
+    this.newLineForm();
+    var params = this.$(".song-new-form").serializeJSON();
+    this.model.set(params.input.song);
+    this.render();
+  },
+
+  newLineForm: function () {
+    this.removeSubviews('.line-new');
+    var lineNewView =
+      new MusicMastrMind.Views.LineForm({
+        model: new MusicMastrMind.Models.Line(),
+        song: this.model
+      });
+    this.addSubview(".line-new", lineNewView);
+  },
+
 
   submit: function (event) {
     event.preventDefault();
 
-    var params = $(event.currentTarget).serializeJSON();
-    this.model.set("form_data", params.song);
+    var params = this.$(".song-new-form").serializeJSON();
+    this.model.set("form_data", params.input);
 
+    var view = this;
     this.model.save({}, {
       success: function() {
-        debugger;
+        Backbone.history.navigate(
+          "#/songs/" + view.model.id,
+          { trigger: true }
+        );
       },
       error: function () {
         debugger;

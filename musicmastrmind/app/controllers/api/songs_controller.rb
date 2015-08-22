@@ -2,11 +2,9 @@ class Api::SongsController < ApplicationController
   def create
 
     if validate_form_data(params[:form_data])
-      @song = Song.new(get_song_data)
-      # create lines TODO all this
       render :show
     else
-      render json: "didn't pass validation"
+      render json: @errors, status: :unprocessable_entity
     end
   end
 
@@ -23,12 +21,11 @@ class Api::SongsController < ApplicationController
 
   def update
     @song = Song.find(params[:id])
-    if user_permission?(song)
+    if user_permission?(@song)
       if @song.update(song_params)
           render :show
       else
-        render json: @song.errors.full_messages,
-          status: :unprocessable_entity
+        render json: @song.errors.full_messages, status: :unprocessable_entity
       end
     end
   end
@@ -79,22 +76,39 @@ class Api::SongsController < ApplicationController
   end
 
   def validate_form_data(form_data)
-    # {"title"=>"Octopus's Garden", "artist_name"=>"The Beatles", "album_title"=>"Abbey Road", "track_number"=>"5"}
-    debugger
-    # set the artist and album to true so they can pass validation. If everything else passes validation, but the artist or album don't exist yet, we will create the new artist/album.
+    # {"song"=>{"title"=>"Test Song", "artist_name"=>"Test Artist"}, "lines"=>[{"body"=>"first line"}, {"body"=>"second Line"}, {"body"=>"third line"}, {"body"=>"fourth line"}]}
+    song_data = form_data["song"]
+    lines_data = form_data["lines"]
     @song = Song.new()
-    @song.title = form_data["title"]
-    artist = Artist.find_by_name(form_data["artist_name"])
-    if artist
-      album = artist.albums.find_by_name(form_data["album_title"])
-      if !album
-        album = Album.new()
-    else
-      artist = new Artist({ name: form_data["artist_name"] })
-    album = Album.find_by_title(form_data["album_title"]).where()
+    @song.creator_id = current_user.id
+    @song.title = song_data["title"]
 
-    @song.track_number = form_data["track_number"].to_i
-    fail
-    # TODO fix all this
+    artist = Artist.find_by_name(song_data["artist_name"])
+    artist ||= Artist.new({ name: song_data["artist_name"] })
+    @song.artist = artist
+
+    lines_data.each_with_index do |line, idx|
+      new_line = Line.new({ body: line["body"], order: idx + 1 })
+      new_line.song = @song
+      @song.lines << new_line
+    end
+
+    errors = []
+    artist.valid?
+    errors += artist.errors.full_messages
+    @song.valid?
+    errors += @song.errors.full_messages
+    @song.lines.each do |line|
+      line.valid?
+      errors += line.errors.full_messages
+    end
+
+    if errors.empty?
+      @song.save
+      return true
+    else
+      return false
+    end
+
   end
 end

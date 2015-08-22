@@ -3,10 +3,10 @@ class CreateSongs < ActiveRecord::Migration
     create_table :songs do |t|
       t.string :title, null: false
       t.string :writer
-      t.integer :track_number, null: false
+      t.integer :track_number
       t.integer :creator_id, null: false
       t.integer :artist_id, null: false
-      t.integer :album_id, null: false
+      t.integer :album_id
 
       t.timestamps null: false
     end

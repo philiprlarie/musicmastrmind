@@ -1,4 +1,4 @@
-  MusicMastrMind.Views.InterpretationForm = Backbone.View.extend({
+MusicMastrMind.Views.InterpretationForm = Backbone.View.extend({
   template: JST['interpretations/form'],
   tagName: 'form',
   className: 'interpretation-form',
