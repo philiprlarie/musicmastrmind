@@ -21,6 +21,7 @@ MusicMastrMind.Views.SongNew = Backbone.CompositeView.extend({
     var params = this.$(".song-new-form").serializeJSON();
     this.model.set(params.input.song);
     this.render();
+    this.$('.new-line-textarea').focus();
   },
 
   newLineForm: function () {
@@ -62,6 +63,7 @@ MusicMastrMind.Views.SongNew = Backbone.CompositeView.extend({
     });
     this.$el.html(content);
     this.attachSubviews(); // subviews $els get put into the dom. subviews are already rendered
+    this.$('.song-new-form-name').focus();
     return this;
   }
 });
