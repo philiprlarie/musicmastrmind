@@ -21,6 +21,10 @@
       Line <%= index + 1 %><br/>
       <textarea name="input[lines][<%= index %>][body]"><%= line.escape("body") %></textarea>
     </label>
+    <button type="button"
+      data-line-id="<%= index %>"
+      class="song-line-delete btn">Delete Line
+    </button>
 
   <% }) %>
   <br/>

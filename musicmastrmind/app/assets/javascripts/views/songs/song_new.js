@@ -4,7 +4,7 @@ MusicMastrMind.Views.SongNew = Backbone.CompositeView.extend({
   className: 'songNew group',
 
   initialize: function () {
-    this.listenTo(this.model.lines(), "add", this.addLine);
+    this.listenTo(this.model.lines(), "add remove", this.addLine);
     this.addSubviews();
   },
 
@@ -13,7 +13,8 @@ MusicMastrMind.Views.SongNew = Backbone.CompositeView.extend({
   },
 
   events: {
-    "click .song-form-submit": "submit"
+    "click .song-form-submit": "submit",
+    "click .song-line-delete": "deleteLine",
   },
 
   addLine: function () {
@@ -32,6 +33,13 @@ MusicMastrMind.Views.SongNew = Backbone.CompositeView.extend({
         song: this.model
       });
     this.addSubview(".line-new", lineNewView);
+  },
+
+  deleteLine: function (event) {
+    event.preventDefault();
+    var lineId = $(event.currentTarget).data("line-id");
+    var modelToDelete = this.model.lines().models[lineId];
+    this.model.lines().remove(modelToDelete);
   },
 
 
