@@ -26,31 +26,15 @@ user4 = User.create({
 
 ##################################### new artist
 artist1 = Artist.create({ name: "Arctic Monkies" })
-whatervPeopleSay = Album.create({
-  title: "Whatever People Say I Am, That's What I'm Not",
-  release_year: 2006,
-  image_url: "http://vignette3.wikia.nocookie.net/lyricwiki/images/6/67/Arctic_Monkeys_-_Whatever_People_Say_I_Am,_That's_What_I'm_Not.jpg/revision/latest?cb=20100702190727",
-  artist_id: artist1.id
-})
-am = Album.create({
-  title: "AM",
-  release_year: 2013,
-  image_url: "https://upload.wikimedia.org/wikipedia/en/0/04/Arctic_Monkeys_-_AM.png",
-  artist_id: artist1.id
-})
 mardyBum = Song.create({
   title: "Mardy Bum",
   creator_id: user1.id,
   artist_id: artist1.id,
-  album_id: whatervPeopleSay.id,
-  track_number: 9
 })
 doIwantToKnow = Song.create({
   title: "Do I Wanna Know?",
   creator_id: user2.id,
   artist_id: artist1.id,
-  album_id: am.id,
-  track_number: 1
 })
 
 
@@ -58,13 +42,6 @@ doIwantToKnow = Song.create({
 
 ##################################### new artist
 artist2 = Artist.create({ name: "Grateful Dead" })
-americanBeauty = Album.create({
-  title: "Whatever People Say I Am, That's What I'm Not",
-  release_year: 1970,
-  image_url: "http://ecx.images-amazon.com/images/I/61HW7HZ8SAL._SS500_.jpg",
-  artist_id: artist2.id
-})
-
 artist3 = Artist.create({ name: "Jet" })
 artist4 = Artist.create({ name: "Kings of Leon" })
 artist5 = Artist.create({ name: "Led Zeppelin" })
@@ -81,20 +58,12 @@ artist11 = Artist.create({ name: "Yes" })
 
 ##################################### new artist
 artist9 = Artist.create({ name: "The Beatles" })
-abbyRoad = Album.create({
-  title: "Abbey Road",
-  release_year: 1969,
-  image_url: "http://d817ypd61vbww.cloudfront.net/sites/default/files/styles/media_responsive_widest/public/tile/image/original_593.jpg?itok=lhwAxXPe",
-  artist_id: artist9.id
-})
 
 song1 = Song.create({
   title: "Because",
   writer: 'Lennon–McCartney',
   creator_id: user1.id,
   artist_id: artist9.id,
-  album_id: abbyRoad.id,
-  track_number: 8
 })
 line1 = Line.create({
   body: "Because the world is round it turns me on
@@ -151,8 +120,6 @@ song2 = Song.create({
   writer: 'George Harrison',
   creator_id: user1.id,
   artist_id: artist9.id,
-  album_id: abbyRoad.id,
-  track_number: 2
 })
 
 song3 = Song.create({
@@ -160,6 +127,4 @@ song3 = Song.create({
   writer: "Lennon–McCartney",
   creator_id: user2.id,
   artist_id: artist9.id,
-  album_id: abbyRoad.id,
-  track_number: 3
 })
