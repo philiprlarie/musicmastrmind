@@ -1,6 +1,6 @@
 <div class="song-primary">
   <h2 class="song-title"><%= song.escape('title') %></h2>
-  <h3><a href="#"></a>By<%= song.escape('artist') %></h3>
+  <h3>By <a href="#/artists/<%= artist.id %>"><%= artist.escape('name') %></a></h3>
   <h6>lyrics by <%= creator.escape('username') %></h6>
 
   <ul class="lines">

@@ -5,7 +5,7 @@
 #  id         :integer          not null, primary key
 #  body       :text             not null
 #  order      :integer          not null
-#  song_id    :integer          not null
+#  song_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

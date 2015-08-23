@@ -11,21 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150821183907) do
+ActiveRecord::Schema.define(version: 20150819223754) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "albums", force: :cascade do |t|
-    t.string   "title",        null: false
-    t.integer  "release_year", null: false
-    t.string   "image_url",    null: false
-    t.integer  "artist_id",    null: false
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  add_index "albums", ["artist_id"], name: "index_albums_on_artist_id", using: :btree
 
   create_table "artists", force: :cascade do |t|
     t.string   "name",       null: false
@@ -58,20 +47,16 @@ ActiveRecord::Schema.define(version: 20150821183907) do
   add_index "lines", ["song_id"], name: "index_lines_on_song_id", using: :btree
 
   create_table "songs", force: :cascade do |t|
-    t.string   "title",        null: false
+    t.string   "title",      null: false
     t.string   "writer"
-    t.integer  "track_number"
-    t.integer  "creator_id",   null: false
-    t.integer  "artist_id",    null: false
-    t.integer  "album_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "creator_id", null: false
+    t.integer  "artist_id",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "songs", ["album_id"], name: "index_songs_on_album_id", using: :btree
   add_index "songs", ["artist_id"], name: "index_songs_on_artist_id", using: :btree
   add_index "songs", ["creator_id"], name: "index_songs_on_creator_id", using: :btree
-  add_index "songs", ["track_number", "album_id"], name: "index_songs_on_track_number_and_album_id", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",           null: false
