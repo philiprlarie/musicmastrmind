@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20150821183907) do
   create_table "lines", force: :cascade do |t|
     t.text     "body",       null: false
     t.integer  "order",      null: false
-    t.integer  "song_id",    null: false
+    t.integer  "song_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

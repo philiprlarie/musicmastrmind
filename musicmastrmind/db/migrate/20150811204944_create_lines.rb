@@ -3,7 +3,7 @@ class CreateLines < ActiveRecord::Migration
     create_table :lines do |t|
       t.text :body, null: false
       t.integer :order, null: false
-      t.integer :song_id, null: false
+      t.integer :song_id
 
       t.timestamps null: false
     end
