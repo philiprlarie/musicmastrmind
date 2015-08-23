@@ -17,6 +17,7 @@ MusicMastrMind.Views.InterpretationForm = Backbone.View.extend({
       interpretation: this.model
     });
     this.$el.html(content);
+    this.$('.new-interpretation-textarea').focus();
     return this;
   },
 
@@ -28,8 +29,8 @@ MusicMastrMind.Views.InterpretationForm = Backbone.View.extend({
       return "waiting for previous submit. hold your horses";
     }
     this.submitDisabled = true;
+    this.$(".interpretation-form-submit").attr("disabled", "disabled");
 
-    this.$(".interpretation-form-errors").empty();
     var spinner = new Spinner().spin();
     this.$(".interpretation-form-submit").append(spinner.el);
 
@@ -40,9 +41,12 @@ MusicMastrMind.Views.InterpretationForm = Backbone.View.extend({
       success: function () {
         view.line.interpretations().add(view.model);
         view.submitDisabled = false;
+        this.$(".interpretation-form-submit").removeAttr("disabled");
       },
       error: function (model, resp, options) {
+        this.$(".interpretation-form-errors").empty();
         view.submitDisabled = false;
+        this.$(".interpretation-form-submit").removeAttr("disabled");
         view.$(".interpretation-form-submit").find(".spinner").remove();
         var errors = jQuery.parseJSON(resp.responseText);
         _.each(errors, function (error) {

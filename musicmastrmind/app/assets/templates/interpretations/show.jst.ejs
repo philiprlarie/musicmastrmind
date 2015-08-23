@@ -2,6 +2,7 @@
 <b> - <%= interpretation.creator().escape('username') %></b>
 <% if (interpretation.belongsToCurrentUser && !turnOffButtons) { %>
   <!-- TODO refactor this shit. buttons belong in seperate subview. turnOFfButtons, wtf is that. get it together-->
+  <br/>
   <button type="button" class="interpretation-delete-btn btn btn-default">Delete</button>
   <button type="button" class="interpretation-edit-btn btn btn-default">Edit</button>
 <% } %>
