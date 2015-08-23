@@ -19,7 +19,6 @@ class Song < ActiveRecord::Base
   belongs_to :creator, class_name: :User
 
   belongs_to :artist
-  belongs_to :album
 
   has_many :lines
 

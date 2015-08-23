@@ -1,1 +1,6 @@
-json.partial!("song", song: @song, lines: @lines, creator: @creator)
+json.partial!("song",
+  song: @song,
+  lines: @lines,
+  creator: @creator,
+  artist: @artist
+)

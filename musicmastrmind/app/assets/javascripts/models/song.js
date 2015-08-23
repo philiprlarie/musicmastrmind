@@ -13,6 +13,7 @@ MusicMastrMind.Models.Song = Backbone.Model.extend({
       }
       delete response.creator;
     }
+    debugger
     if (response.artist) {
       this.artist().set(response.artist); // doesn't parse models
       delete response.artist;

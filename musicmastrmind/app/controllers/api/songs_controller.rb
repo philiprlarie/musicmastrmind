@@ -11,6 +11,7 @@ class Api::SongsController < ApplicationController
     @song = Song.find(params[:id])
     @lines = @song.lines
     @creator = @song.creator
+    @artist = @song.artist
     if @song
       render :show
     else
@@ -47,10 +48,8 @@ class Api::SongsController < ApplicationController
     params.require(:song).permit(
       :title,
       :writer,
-      :track_number,
       :creator_id,
       :artist_id,
-      :album_id
     )
   end
 
@@ -66,9 +65,6 @@ class Api::SongsController < ApplicationController
 
   def get_collection
     return Song.all.includes(:artist) if params[:all] # TODO probably should remove this at some point
-    if params[:album_id]
-      return Song.where(album_id: params[:album_id]).includes(:artist)
-    end
     if params[:artist_id]
       return Song.where(artist_id: params[:artist_id]).includes(:artist)
     end
