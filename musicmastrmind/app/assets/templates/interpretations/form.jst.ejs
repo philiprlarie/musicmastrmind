@@ -4,9 +4,8 @@
   <h3>Edit Interpretation</h3>
 <% } %>
 <ul class="interpretation-form-errors"></ul>
-<label>
-  Comment Content
-  <textarea name="interpretation[body]"><%= interpretation.escape("body") %></textarea>
-</label>
 
-<button type="button" class="interpretation-form-submit btn">Submit</button>
+<textarea name="interpretation[body]" class="new-interpretation-textarea"><%= interpretation.escape("body") %></textarea>
+
+
+<button type="button" class="interpretation-form-submit btn btn-default">Submit</button>

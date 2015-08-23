@@ -25,7 +25,7 @@ ul {
 }
 
 a, a:hover {
-  color: #000;
+  color: #ccc;
 }
 
 .group::after {
@@ -38,7 +38,12 @@ body {
   font-family: "Lora";
   font-size: 16px;
   font-weight: 400;
-  background: #eee;
+  background: #141414;
+  color: #ccc;
+}
+
+h3 {
+  margin-top: 5px;
 }
 
 #content {
@@ -49,4 +54,8 @@ body {
 
 .btn {
   position: relative;
+}
+
+textarea {
+  background: #333;
 }

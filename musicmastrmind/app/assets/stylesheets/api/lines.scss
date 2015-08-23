@@ -2,27 +2,37 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-.line-lyrics {
-  font-weight: bold;
-}
-
 //Line show
 .line-lyrics {
-  background-color: #998;
+  background: #BA6ACF;
+  border-radius: 5px 5px 0 5px;
+  color: #000;
+  font-weight: bold;
   white-space: pre-line;
-  position: relative;
-  right: 14px;
   padding: 0 14px 0 14px;
-  float: left;
-  width: 414px;
   margin-bottom: 12px;
 }
 
 .interpretation {
   margin: 5px 0 5px 0;
+  border-left: 1px solid #BA6ACF;
+  padding-left: 14px;
 }
 
 .line-interpretations {
   clear: both;
+}
+
+.interpretation-form {
+  background-color: #222;
+  border-radius: 5px 0 0 5px;
+  padding: 5px;
+}
+
+.interpretation-form textarea {
+  width: 316px;
+}
+
+.interpretation-form-errors {
+  color: #a00;
 }

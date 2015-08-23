@@ -7,13 +7,15 @@
 .song-primary {
   float: left;
   width: 500px;
-  border-left: 1px solid #bbb;
+  border-left: 1px solid #BA6ACF;
+  border-radius: 5px 5px 5px 0;
 }
 
 .line-show {
   float: right;
   width: 400px;
-  border-right: 1px solid #bbb;
+  border-right: 1px solid #BA6ACF;
+  border-radius: 0 5px 0 0;
 }
 
 .song-lyric {
@@ -24,10 +26,13 @@
   font-weight: bold;
   margin: 5px 0px;
   padding: 0 14px;
+  border-radius: 0 5px 5px 0;
+  background: #202;
 }
 
 .song-lyric:hover {
-  background-color: #998
+  background-color: #BA6ACF;
+  color: #000;
 }
 
 .song-info-header span {
@@ -39,8 +44,9 @@
   font-weight: 700;
   font-size: 44px;
   padding: 7px 12px 2px 13px;
-  background: #ffff64;
+  background: #BA6ACF;
   color: #000;
+  border-radius: 5px 5px 5px 0;
 }
 
 .song-header-artist {

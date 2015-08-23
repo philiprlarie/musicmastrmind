@@ -48,6 +48,7 @@ MusicMastrMind.Views.InterpretationForm = Backbone.View.extend({
         _.each(errors, function (error) {
           this.$(".interpretation-form-errors").append("<li> *" + error + "</li>");
         });
+        this.$('.new-interpretation-textarea').focus();
       }
     });
   }
