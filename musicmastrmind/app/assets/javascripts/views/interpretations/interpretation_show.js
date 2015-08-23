@@ -45,7 +45,7 @@ MusicMastrMind.Views.InterpretationShow = Backbone.CompositeView.extend({
     });
     this.$el.html(content);
     this.attachSubviews();
-    jQuery("abbr.timeago").timeago();
+    this.$("abbr.timeago").timeago();
     return this;
   }
 });
