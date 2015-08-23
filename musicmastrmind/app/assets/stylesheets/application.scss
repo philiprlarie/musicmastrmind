@@ -24,6 +24,10 @@ ul {
   padding-left: 0;
 }
 
+a, a:hover {
+  color: #000;
+}
+
 .group::after {
   content: "";
   display: block;

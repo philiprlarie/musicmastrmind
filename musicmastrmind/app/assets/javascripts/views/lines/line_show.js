@@ -34,18 +34,18 @@ MusicMastrMind.Views.LineShow = Backbone.CompositeView.extend({
         model: interpretation,
         line: this.model
       });
-    this.addSubview(".interpretations", interpretationsShow);
+    this.addSubview(".line-interpretations", interpretationsShow);
 
-    this.removeSubviews('.interpretations-new'); // remove form when user adds his onw interpretation
+    this.removeSubviews('.line-interpretations-new'); // remove form when user adds his onw interpretation
   },
 
   removeInterpretation: function (interpretation) {
-    this.removeModelSubview(".interpretations", interpretation);
+    this.removeModelSubview(".line-interpretations", interpretation);
     this.addNewForm();
   },
 
   addNewForm: function () {
-    this.removeSubviews('.interpretations-new');
+    this.removeSubviews('.line-interpretations-new');
     if (window.CURRENT_USER && !this._currentUserHasInterpretation()) {
       var interpretationNewView =
         new MusicMastrMind.Views.InterpretationForm({
@@ -54,7 +54,7 @@ MusicMastrMind.Views.LineShow = Backbone.CompositeView.extend({
           }),
           line: this.model
         });
-      this.addSubview(".interpretations-new", interpretationNewView);
+      this.addSubview(".line-interpretations-new", interpretationNewView);
     }
   },
 

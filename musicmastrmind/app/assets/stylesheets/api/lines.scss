@@ -6,3 +6,23 @@
 .line-lyrics {
   font-weight: bold;
 }
+
+//Line show
+.line-lyrics {
+  background-color: #998;
+  white-space: pre-line;
+  position: relative;
+  right: 14px;
+  padding: 0 14px 0 14px;
+  float: left;
+  width: 414px;
+  margin-bottom: 12px;
+}
+
+.interpretation {
+  margin: 5px 0 5px 0;
+}
+
+.line-interpretations {
+  clear: both;
+}

@@ -2,14 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+// Song Show
 .song-primary {
   float: left;
   width: 500px;
+  border-left: 1px solid #bbb;
 }
 
 .line-show {
   float: right;
   width: 400px;
+  border-right: 1px solid #bbb;
 }
 
 .song-lyric {
@@ -19,8 +23,41 @@
   white-space: pre-line;
   font-weight: bold;
   margin: 5px 0px;
+  padding: 0 14px;
 }
 
 .song-lyric:hover {
   background-color: #998
+}
+
+.song-info-header span {
+  display: inline-block;
+}
+
+.song-header-title {
+  line-height: 1.0;
+  font-weight: 700;
+  font-size: 44px;
+  padding: 7px 12px 2px 13px;
+  background: #ffff64;
+  color: #000;
+}
+
+.song-header-artist {
+  font-size: 24px;
+  padding: 9px 3px 3px 14px;
+  font-weight: 400;
+}
+
+.lines {
+  margin: 5px 0px;
+}
+
+.song-lyrics-by {
+  display: inline-block;
+  padding: 15px 0px 0px 14px;
+}
+
+.line-show {
+  margin: 130px 0 0 0;
 }

@@ -2,6 +2,14 @@
 <!-- TODO style better. sign in page too -->
 <!-- TODO show errors on bad sign in. sign in page too -->
 
+<% if flash[:errors] %>
+  <ul class="errors">
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <form method="post" action="<%= users_url %>">
   <%= form_token %>
 

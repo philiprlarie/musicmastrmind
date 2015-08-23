@@ -1,8 +1,14 @@
 <div class="song-primary">
-  <h2 class="song-title"><%= song.escape('title') %></h2>
-  <h3>By <a href="#/artists/<%= artist.id %>"><%= artist.escape('name') %></a></h3>
-  <h6>lyrics by <%= creator.escape('username') %></h6>
+  <div class="song-info-header">
+    <span class="song-header-title"><%= song.escape('title') %></span>
+    <br/>
+    <span class="song-header-artist"><a href="#/artists/<%= artist.id %>"><%= artist.escape('name') %></a></span>
+    <% if (song.escape('writer')) { %>
+      <span class="song-header-writer">(Writen By <%= song.escape('writer') %>)</span>
+    <% } %>
+  </div>
 
+    <div class="song-lyrics-by">lyrics by <%= creator.escape('username') %></div>
   <ul class="lines">
     <% song.lines().each(function (line) { %>
       <li>
