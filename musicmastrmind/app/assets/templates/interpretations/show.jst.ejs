@@ -1,5 +1,9 @@
 <%= interpretation.escape('body') %>
 <b> - <%= interpretation.creator().escape('username') %></b>
+
+<abbr class="timeago"
+  title="<%= interpretation.escape('created_at') %>"
+  ><%= interpretation.escape('created_at') %></abbr>
 <% if (interpretation.belongsToCurrentUser && !turnOffButtons) { %>
   <!-- TODO refactor this shit. buttons belong in seperate subview. turnOFfButtons, wtf is that. get it together-->
   <br/>

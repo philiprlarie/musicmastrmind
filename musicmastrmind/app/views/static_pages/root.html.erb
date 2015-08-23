@@ -3,7 +3,10 @@
 <div id="content"></div>
 
 <script>
-  $(MusicMastrMind.initialize);
+  $(function () {
+    MusicMastrMind.initialize();
+    jQuery("abbr.timeago").timeago();
+  });
   <% if logged_in? %>
     window.CURRENT_USER = {};
     window.CURRENT_USER.username = '<%=current_user.username%>';
