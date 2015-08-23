@@ -8,6 +8,10 @@ MusicMastrMind.Collections.Interpretations = Backbone.Collection.extend({
     this.line = options.line;
   },
 
+  comparator: function(interpretation) {
+    return interpretation.get('created_at');
+  },
+
   getOrFetch: function(id) {
     var interpretations = this;
     var interpretation = this.get(id);

@@ -8,7 +8,9 @@
     <% } %>
   </div>
 
-    <div class="song-lyrics-by">lyrics by <%= creator.escape('username') %></div>
+    <div class="song-lyrics-by">lyrics by <%= creator.escape('username') %> <abbr class="timeago song-created_at"
+      title="<%= song.escape('created_at') %>"
+      ><%= song.escape('created_at') %></abbr></div>
   <ul class="lines">
     <% song.lines().each(function (line) { %>
       <li>

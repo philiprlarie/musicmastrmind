@@ -32,6 +32,7 @@ MusicMastrMind.Views.SongShow = Backbone.CompositeView.extend({
     });
     this.$el.html(content);
     this.attachSubviews(); // subviews $els get put into the dom. subviews are already rendered
+    this.$("abbr.song-created_at").timeago();
     return this;
   }
 });
