@@ -1,3 +1,12 @@
 <div class="line-lyrics"><%= line.escape('body') %></div>
+
+<% if (count === 1) { %>
+  <h3><%= toWords(count).capitalizeFirstLetter() %>Contributor</h3>
+<% } else if (count === 0 ){ %>
+  <h3><%= "Zero" %> Contributors</h3>
+<% } else { %>
+  <h3><%= toWords(count).capitalizeFirstLetter() %>Contributors</h3>
+<% } %>
+
 <ul class="line-interpretations"></ul>
 <div class="line-interpretations-new"></div>

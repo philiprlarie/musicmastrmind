@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require jquery.serializeJSON
 //= require jquery.timeago
+//= require toword
+//= require capitalize_first_letter
 //= require underscore
 //= require backbone
 //= require bootstrap

@@ -37,11 +37,13 @@ MusicMastrMind.Views.LineShow = Backbone.CompositeView.extend({
     this.addSubview(".line-interpretations", interpretationsShow);
 
     this.removeSubviews('.line-interpretations-new'); // remove form when user adds his onw interpretation
+    this.render(); // so the count can update
   },
 
   removeInterpretation: function (interpretation) {
     this.removeModelSubview(".line-interpretations", interpretation);
     this.addNewForm();
+    this.render(); // so the count can update
   },
 
   addNewForm: function () {
@@ -71,7 +73,8 @@ MusicMastrMind.Views.LineShow = Backbone.CompositeView.extend({
 
   render: function () {
     var renderedContent = this.template({
-      line: this.model
+      line: this.model,
+      count: this.model.interpretations().size()
     });
 
     this.$el.html(renderedContent);
