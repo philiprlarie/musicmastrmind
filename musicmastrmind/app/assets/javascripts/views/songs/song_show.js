@@ -25,10 +25,13 @@ MusicMastrMind.Views.SongShow = Backbone.CompositeView.extend({
 
 
   render:  function () {
+    var image_url = this.model.escape("image_url") || this.model.artist().escape("image_url");
+    image_url = image_url.replace("upload/", "upload/w_900,h_290,c_fill/");
     var content = this.template({
       song: this.model,
       creator: this.model.creator(),
-      artist: this.model.artist()
+      artist: this.model.artist(),
+      image_url: image_url
     });
     this.$el.html(content);
     this.attachSubviews(); // subviews $els get put into the dom. subviews are already rendered

@@ -25,7 +25,10 @@ user4 = User.create({
 
 
 ##################################### new artist
-artist1 = Artist.create({ name: "Arctic Monkies" })
+artist1 = Artist.create({
+  name: "Arctic Monkies",
+  image_url: "http://res.cloudinary.com/dnbxm7cx2/image/upload/v1440449434/wu94pngrsyopbebghxqw.jpg"
+})
 mardyBum = Song.create({
   title: "Mardy Bum",
   creator_id: user1.id,
@@ -41,23 +44,56 @@ doIwantToKnow = Song.create({
 
 
 ##################################### new artist
-artist2 = Artist.create({ name: "Grateful Dead" })
-artist3 = Artist.create({ name: "Jet" })
-artist4 = Artist.create({ name: "Kings of Leon" })
-artist5 = Artist.create({ name: "Led Zeppelin" })
-artist6 = Artist.create({ name: "Pink Floyd" })
-artist7 = Artist.create({ name: "Red Hot Chili Peppers" })
-artist8 = Artist.create({ name: "Steely Dan" })
+artist2 = Artist.create({
+  name: "Grateful Dead",
+  image_url: "http://res.cloudinary.com/dnbxm7cx2/image/upload/v1440449481/vtb9lecjnoo3ppsr9vsd.jpg"
+})
+artist3 = Artist.create({
+  name: "Jet",
+  image_url: "http://res.cloudinary.com/dnbxm7cx2/image/upload/v1440449573/mygpk5yzeu1bmy9epbl1.jpg"
+})
+artist4 = Artist.create({
+  name: "Kings of Leon",
+  image_url: "http://res.cloudinary.com/dnbxm7cx2/image/upload/v1440449685/fzef6ts9yv2gsuhmzgmb.jpg"
+})
+artist5 = Artist.create({
+  name: "Led Zeppelin",
+  image_url: "http://res.cloudinary.com/dnbxm7cx2/image/upload/v1440449796/fwvdq0njvtlxusk6cazs.jpg"
+})
+artist6 = Artist.create({
+  name: "Pink Floyd",
+  image_url: "http://res.cloudinary.com/dnbxm7cx2/image/upload/v1440449848/muaifvmznof1ysmrxeil.jpg"
+})
+artist7 = Artist.create({
+  name: "Red Hot Chili Peppers",
+  image_url: "http://res.cloudinary.com/dnbxm7cx2/image/upload/v1440449886/jcpf9fitibkl2qdwjbsf.jpg"
+})
+artist8 = Artist.create({
+  name: "Steely Dan",
+  image_url: "http://res.cloudinary.com/dnbxm7cx2/image/upload/v1440450002/hvr1sqxl2nh3cwndfz1x.jpg"
+})
 
-artist10 = Artist.create({ name: "The Doors" })
-artist12 = Artist.create({ name: "Weezer" })
-artist11 = Artist.create({ name: "Yes" })
+artist10 = Artist.create({
+  name: "The Doors",
+  image_url: "http://res.cloudinary.com/dnbxm7cx2/image/upload/v1440450185/qr3gloqmsuxu65xibrwb.jpg"
+})
+artist12 = Artist.create({
+  name: "Weezer",
+  image_url: "http://res.cloudinary.com/dnbxm7cx2/image/upload/v1440450325/fp9ce8rfp1tqwnrdc5lw.jpg"
+})
+artist11 = Artist.create({
+  name: "Yes",
+  image_url: "http://res.cloudinary.com/dnbxm7cx2/image/upload/v1440450414/kscjitwpfdrte92v7dl9.jpg"
+})
 
 
 
 
 ##################################### new artist
-artist9 = Artist.create({ name: "The Beatles" })
+artist9 = Artist.create({
+  name: "The Beatles",
+  image_url: "http://res.cloudinary.com/dnbxm7cx2/image/upload/v1440450083/c7oc3xeboknfkyziasnd.jpg"
+})
 
 song1 = Song.create({
   title: "Because",

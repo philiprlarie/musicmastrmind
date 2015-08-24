@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20150819223754) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "name",       null: false
+    t.string   "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -51,6 +52,7 @@ ActiveRecord::Schema.define(version: 20150819223754) do
     t.string   "writer"
     t.integer  "creator_id", null: false
     t.integer  "artist_id",  null: false
+    t.string   "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -63,6 +65,7 @@ ActiveRecord::Schema.define(version: 20150819223754) do
     t.string   "username",        null: false
     t.string   "password_digest", null: false
     t.string   "session_token",   null: false
+    t.string   "image_url"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end

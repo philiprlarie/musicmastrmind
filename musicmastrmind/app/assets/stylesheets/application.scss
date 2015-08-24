@@ -50,6 +50,7 @@ h3 {
     display: block;
     width: 900px;
     margin: 0 auto;
+    padding: 0 0 100px 0;
 }
 
 .btn {
@@ -58,4 +59,14 @@ h3 {
 
 textarea {
   background: #333;
+}
+
+.navbar {
+  margin-bottom: 0;
+  border-radius: 0 0 5px 5px;
+}
+
+.header-image {
+  width: 100%;
+  // position: absolute;
 }

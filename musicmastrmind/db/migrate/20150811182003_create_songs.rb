@@ -5,6 +5,7 @@ class CreateSongs < ActiveRecord::Migration
       t.string :writer
       t.integer :creator_id, null: false
       t.integer :artist_id, null: false
+      t.string :image_url
 
       t.timestamps null: false
     end

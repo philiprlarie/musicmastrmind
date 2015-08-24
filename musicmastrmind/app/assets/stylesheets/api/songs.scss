@@ -5,10 +5,13 @@
 
 // Song Show
 .song-primary {
+  position: relative;
+  top: -100px;
+  background-color: rgba(20, 20, 20, .8);
   float: left;
   width: 500px;
   border-left: 1px solid #BA6ACF;
-  border-radius: 5px 5px 5px 0;
+  border-radius: 5px 0 5px 0;
 }
 
 .line-show {
@@ -62,8 +65,4 @@
 .song-lyrics-by {
   display: inline-block;
   padding: 15px 0px 0px 14px;
-}
-
-.line-show {
-  margin: 130px 0 0 0;
 }
