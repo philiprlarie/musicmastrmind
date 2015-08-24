@@ -40,3 +40,15 @@
 .interpretation-form-submit {
   top: -30px;
 }
+
+.interpretation.interpretation-current-user {
+  border-left: 3px solid Yellow;
+}
+
+.interpretation.interpretation-current-user .interpretation-creator {
+  color: yellow;
+}
+
+.interpretation .interpretation-creator {
+  color: #BA6ACF;
+}

@@ -41,7 +41,8 @@ MusicMastrMind.Views.InterpretationShow = Backbone.CompositeView.extend({
   render:  function () {
     var content = this.template({
       interpretation: this.model,
-      turnOffButtons: this.turnOffButtons
+      turnOffButtons: this.turnOffButtons,
+      view: this
     });
     this.$el.html(content);
     this.attachSubviews();
