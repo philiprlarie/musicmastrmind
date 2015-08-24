@@ -22,6 +22,21 @@ MusicMastrMind.Views.ArtistShow = Backbone.CompositeView.extend({
     this.addSubview(".artist-songs", songsIndex);
   },
 
+  ////////////////////////////////
+  events: {
+    "click button": "upload"
+  },
+
+  upload: function(e){
+    e.preventDefault();
+    cloudinary.openUploadWidget(CLOUDINARY_OPTIONS, function(error, result){
+      var data = result[0];
+      console.log("url: " + data.url);
+      console.log("thumb_url: " + data.thumbnail_url);
+    });
+  },
+  ////////////////////////////////
+
   render:  function () {
     var content = this.template({
       artist: this.model,
