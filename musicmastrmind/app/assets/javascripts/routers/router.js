@@ -17,7 +17,8 @@ MusicMastrMind.Routers.Router = Backbone.Router.extend({
   },
 
   LandingPage: function () {
-    this.$rootEl.html("");
+    var view = new MusicMastrMind.Views.LandingPage();
+    this._swapView(view);
   },
 
   SongsAll: function () {
