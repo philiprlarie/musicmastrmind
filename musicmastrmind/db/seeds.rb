@@ -27,7 +27,7 @@ user4 = User.create({
 ##################################### new artist
 artist1 = Artist.create({
   name: "Arctic Monkies",
-  image_url: "http://res.cloudinary.com/dnbxm7cx2/image/upload/v1440449434/wu94pngrsyopbebghxqw.jpg"
+  image_url: "http://res.cloudinary.com/dnbxm7cx2/image/upload/v1440460961/wu94pngrsyopbebghxqw.jpg"
 })
 mardyBum = Song.create({
   title: "Mardy Bum",
@@ -46,7 +46,7 @@ doIwantToKnow = Song.create({
 ##################################### new artist
 artist2 = Artist.create({
   name: "Grateful Dead",
-  image_url: "http://res.cloudinary.com/dnbxm7cx2/image/upload/v1440449481/vtb9lecjnoo3ppsr9vsd.jpg"
+  image_url: "http://res.cloudinary.com/dnbxm7cx2/image/upload/v1440461204/vtb9lecjnoo3ppsr9vsd.jpg"
 })
 artist3 = Artist.create({
   name: "Jet",
@@ -58,7 +58,7 @@ artist4 = Artist.create({
 })
 artist5 = Artist.create({
   name: "Led Zeppelin",
-  image_url: "http://res.cloudinary.com/dnbxm7cx2/image/upload/v1440449796/fwvdq0njvtlxusk6cazs.jpg"
+  image_url: "http://res.cloudinary.com/dnbxm7cx2/image/upload/v1440461370/classic-led-zeppelin-wallpaper-with-jimmy-page-in-front_fdiyzm.jpg"
 })
 artist6 = Artist.create({
   name: "Pink Floyd",
@@ -70,7 +70,7 @@ artist7 = Artist.create({
 })
 artist8 = Artist.create({
   name: "Steely Dan",
-  image_url: "http://res.cloudinary.com/dnbxm7cx2/image/upload/v1440450002/hvr1sqxl2nh3cwndfz1x.jpg"
+  image_url: "http://res.cloudinary.com/dnbxm7cx2/image/upload/v1440461466/steely-dan_r0qwxa.jpg"
 })
 
 artist10 = Artist.create({
@@ -79,7 +79,7 @@ artist10 = Artist.create({
 })
 artist12 = Artist.create({
   name: "Weezer",
-  image_url: "http://res.cloudinary.com/dnbxm7cx2/image/upload/v1440450325/fp9ce8rfp1tqwnrdc5lw.jpg"
+  image_url: "http://res.cloudinary.com/dnbxm7cx2/image/upload/v1440461639/weezer_big_o42adp.jpg"
 })
 artist11 = Artist.create({
   name: "Yes",
