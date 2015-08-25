@@ -6,13 +6,10 @@ MusicMastrMind.Views.LandingIndex = Backbone.View.extend({
     this.listenTo(this.collection, "sync add remove", this.render);
   },
 
-
-
   render: function () {
     this.collection.models = this.collection.shuffle();
     var content = this.template({
       songs: this.collection,
-      suppressArtist: this.suppressArtist
     });
     this.$el.html(content);
     return this;
