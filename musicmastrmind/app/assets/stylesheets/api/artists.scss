@@ -1,3 +1,35 @@
 // Place all the styles related to the api/artists controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.artist-index-name-link {
+  float: right;
+}
+
+.artistsAll {
+  position: relative;
+  top: 50px;
+  // border-left: 1px solid #BA6ACF;
+  border-radius: 5px 0 5px 0;
+}
+
+.artist-index-name-link {
+  float: right;
+}
+
+.artist-index-entry {
+  width: 100%;
+  border-top: 1px solid #BA6ACF;
+  margin-top: 10px;
+}
+
+.all-artists-header-title {
+  line-height: 1.0;
+  font-weight: 700;
+  font-size: 44px;
+  padding: 7px 12px 2px 13px;
+  background: #BA6ACF;
+  color: #000;
+  border-radius: 5px 5px 5px 0;
+  display: inline-block;
+}

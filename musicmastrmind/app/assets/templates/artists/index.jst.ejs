@@ -1,9 +1,20 @@
 <ul>
   <% artists.each( function (artist) { %>
     <li>
-      <a href="#/artists/<%= artist.id %>">
-        <%= artist.escape('name') %>
-      </a>
+      <div class="artist-index-entry">
+        <a class="artist-index-image-link"
+           href="#/artists/<%= artist.id %>">
+           <% var image_url = artist.escape("image_url") || "http://res.cloudinary.com/dnbxm7cx2/image/upload/v1440450454/r8rctpkcwhzwc5swewnv.jpg"; %>
+           <% image_url = image_url.replace("upload/", "upload/w_200,h_100,c_fill/"); %>
+           <img src="<%= image_url %>" alt="" />
+        </a>
+
+        <a class="artist-index-name-link"
+           href="#/artists/<%= artist.id %>">
+          <%= artist.escape('name') %>
+        </a>
+
+      </div>
     </li>
   <% }); %>
 </ul>

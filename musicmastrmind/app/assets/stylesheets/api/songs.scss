@@ -66,3 +66,40 @@
   display: inline-block;
   padding: 15px 0px 0px 14px;
 }
+
+// songs index
+.songsAll {
+  position: relative;
+  top: 50px;
+  border-left: 1px solid #BA6ACF;
+  border-radius: 5px 0 5px 0;
+}
+.song-index-image-link {
+  float: right;
+  margin-left: 15px;
+}
+
+.song-index-name-link {
+  float: right;
+}
+
+.song-index-entry {
+  width: 100%;
+  border-top: 1px solid #BA6ACF;
+  margin-top: 10px;
+}
+
+.all-songs-header-title {
+  line-height: 1.0;
+  font-weight: 700;
+  font-size: 44px;
+  padding: 7px 12px 2px 13px;
+  background: #BA6ACF;
+  color: #000;
+  border-radius: 5px 5px 5px 0;
+  display: inline-block;
+}
+
+.song-index-song-title {
+  padding-left: 15px;
+}

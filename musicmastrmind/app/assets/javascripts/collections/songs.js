@@ -2,6 +2,10 @@ MusicMastrMind.Collections.Songs = Backbone.Collection.extend({
   url: "/api/songs",
   model: MusicMastrMind.Models.Song,
 
+  comparator: function(song) {
+    return song.get('title');
+  },
+
   getOrFetch: function(id) {
     var songs = this;
     var song = this.get(id);
