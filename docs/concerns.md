@@ -17,3 +17,11 @@ when fetching a whole collection, pass option { reset: true } this will prevent 
 
 var spinner = new Spinner().spin()
 $('h1').append(spinner.el)
+
+TODO users image
+user sign in styling
+TODO new song form styling
+TODO new song image option
+TODO guest log in
+TODO reset database everyday
+TODO search functionality

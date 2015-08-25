@@ -1,5 +1,3 @@
-// TODO get this through a gem instead?
-
 /*!
   SerializeJSON jQuery plugin.
   https://github.com/marioizquierdo/jquery.serializeJSON

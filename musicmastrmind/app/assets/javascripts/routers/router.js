@@ -1,9 +1,6 @@
 MusicMastrMind.Routers.Router = Backbone.Router.extend({
   initialize: function (options) {
     this.$rootEl = options.$rootEl;
-    // TODO do we need these?
-    this.songs = new MusicMastrMind.Collections.Songs();
-    this.artists = new MusicMastrMind.Collections.Artists();
   },
 
   routes: {
