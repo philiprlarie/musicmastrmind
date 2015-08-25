@@ -9,11 +9,11 @@
 .landing-page-item {
   position: relative;
   display: inline-block;
+  margin: 23px;
 }
 
 .landing-index-links {
   width: 100%;
-  padding-left: 15px;
   position: absolute;
   z-index: 1;
   background-color: rgba(20, 20, 20, 0.8);
@@ -21,32 +21,6 @@
   text-align: center;
 }
 
-
-
-
-
-.song-index-image-link {
-  float: right;
-  margin-left: 15px;
-}
-
-.song-index-name-link {
-  float: right;
-}
-
-.song-index-entry {
-  width: 100%;
-  border-top: 1px solid #BA6ACF;
-  margin-top: 10px;
-}
-
-.all-songs-header-title {
-  line-height: 1.0;
-  font-weight: 700;
-  font-size: 44px;
-  padding: 7px 12px 2px 13px;
-  background: #BA6ACF;
-  color: #000;
-  border-radius: 5px 5px 5px 0;
-  display: inline-block;
+.landingAll p {
+  margin: 20px;
 }
