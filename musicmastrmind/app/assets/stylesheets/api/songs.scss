@@ -2,7 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
 // Song Show
 .song-primary {
   position: relative;
@@ -27,7 +26,9 @@
   clear: both;
   white-space: pre-line;
   font-weight: bold;
-  margin: 5px 0px;
+  text-align: center;
+  width: 450px;
+  margin: 15px 0 0 0;
   padding: 0 14px;
   border-radius: 0 5px 5px 0;
   background: #202;
@@ -59,7 +60,7 @@
 }
 
 .lines {
-  margin: 5px 0px;
+  margin: 5px 0 0 0;
 }
 
 .song-lyrics-by {

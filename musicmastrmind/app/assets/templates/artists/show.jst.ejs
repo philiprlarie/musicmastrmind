@@ -1,9 +1,9 @@
-<img class="header-image" src="<%= image_url %>" alt="" />
+<div class="header-image-holder">
+  <img class="header-image" src="<%= image_url %>" alt="" />
+</div>
 
 <h2 class="artist-name"><%= artist.escape('name') %></h2>
 
 
 <h4>Songs By <%= artist.escape('name') %></h4>
 <div class="artist-songs"></div>
-
-<button class="upload-button">upload new image</button>
