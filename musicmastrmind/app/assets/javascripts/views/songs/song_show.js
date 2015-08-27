@@ -25,7 +25,7 @@ MusicMastrMind.Views.SongShow = Backbone.CompositeView.extend({
 
 
   render:  function () {
-    var image_url = this.model.escape("image_url") || this.model.artist().escape("image_url");
+    var image_url = this.model.escape("image_url") || this.model.artist().escape("image_url") || "http://res.cloudinary.com/dnbxm7cx2/image/upload/v1440450454/r8rctpkcwhzwc5swewnv.jpg";
     image_url = image_url.replace("upload/", "upload/w_900,h_290,c_fill,e_ordered_dither:2/");
     var content = this.template({
       song: this.model,

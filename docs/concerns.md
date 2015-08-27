@@ -13,6 +13,11 @@ avoid N + 1 queries. instead do something like this
 
 when fetching a whole collection, pass option { reset: true } this will prevent an add event from being fired for every model added to collection.
 
+heroku reset your database
+heroku pg:reset DATABASE
+musicmastrmind
+heroku run rake db:migrate
+heroku run rake db:reset
 
 
 var spinner = new Spinner().spin()
