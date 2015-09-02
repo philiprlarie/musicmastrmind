@@ -26,12 +26,6 @@ class User < ActiveRecord::Base
   has_many :interpretations,
     foreign_key: :creator_id
 
-  # TODO make this work. will need a database column for this data
-  def is_moderator?
-    return false
-  end
-
-
 
 
 

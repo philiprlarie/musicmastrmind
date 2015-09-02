@@ -21,7 +21,6 @@ MusicMastrMind.Views.InterpretationForm = Backbone.View.extend({
     return this;
   },
 
-  // TODO maybe refactor this
   submit: function (event) {
     event.preventDefault();
 
