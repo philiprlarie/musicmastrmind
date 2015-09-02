@@ -2,11 +2,6 @@
 
 <div id="content"></div>
 
-<!-- Button trigger modal -->
-<!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Launch demo modal
-</button> -->
-
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -16,11 +11,26 @@
         <h4 class="modal-title" id="myModalLabel">Modal title</h4>
       </div>
       <div class="modal-body">
-        ...
+        <ul>
+          <li><form action = "session/new"
+            method = "get">
+            <input type="hidden" name="guest" value="true">
+            <button type="submit" class="btn btn-default">Guest Log In</button>
+          </form></li>
+          <li><form action = "session/new"
+            method = "get">
+            <button type="submit" class="btn btn-default">Log In</button>
+          </form></li>
+          <li><form action = "users/new"
+            method = "get">
+            <button type="submit" class="btn btn-default">Sign Up</button>
+          </form></li>
+        </ul>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">Save changes</button>
+        <a data-dismiss="modal" data-toggle="modal" href="#/songs/1">Click</a>
       </div>
     </div>
   </div>

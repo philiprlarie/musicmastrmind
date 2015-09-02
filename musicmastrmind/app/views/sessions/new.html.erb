@@ -23,9 +23,47 @@
     id="Password"
     name="user[password]">
 
-  <input type="submit" value="Sign In">
+  <input type="submit" value="Sign In" class="login-button">
 </form>
 
+<a href="<%= new_user_url %>" class="btn btn-default">Sign Up</a>
 <br>
 <a href="/" class="btn btn-default">Back to Site</a>
-<a href="<%= new_user_url %>" class="btn btn-default">Sign Up</a>
+
+
+<% if @guest %>
+  <script type="text/javascript">
+
+    guestLogin =  function(event){
+      var that = this;
+
+      $username = $('#username_email');
+      $password = $('#Password');
+      $submitButton = $('.login-button');
+
+      $username.val('');
+      $password.val('');
+
+      this.slowtype($username, 'guest@pinoir.com', function(){
+        that.slowtype($password, 'password', function(){
+          $submitButton.click();
+        });
+      });
+    },
+
+    slowtype = function($el, word, callback){
+
+      var typing = setInterval(function(){
+        $el.val( $el.val() + word.slice(0,1) );
+        word = word.substr(1);
+
+        if (!word){
+          clearInterval(typing);
+          callback();
+        }
+      }, 40);
+    }
+
+    guestLogin();
+  </script>
+<% end %>

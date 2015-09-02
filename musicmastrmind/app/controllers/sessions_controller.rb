@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+    @guest = params["guest"]
     @user = User.new
     @username_email = nil
     render :new
