@@ -1,4 +1,3 @@
-# TODO add a ton of seed data. At least 5 albums for every genre
 
 user1 = User.create({
   username: "EvilGenius",
@@ -20,7 +19,11 @@ user4 = User.create({
   email: 'Rock4Lyfe@gmail.com',
   password: '!1password'
 })
-
+user5 = User.create({
+  username: "Guest",
+  email: 'guest@gmail.com',
+  password: '!1password'
+})
 
 
 
