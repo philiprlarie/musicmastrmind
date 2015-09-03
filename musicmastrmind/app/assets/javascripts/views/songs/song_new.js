@@ -81,12 +81,21 @@ MusicMastrMind.Views.SongNew = Backbone.CompositeView.extend({
 
 
   render:  function () {
-    var content = this.template({
-      song: this.model,
-    });
-    this.$el.html(content);
-    this.attachSubviews();
-    this.$('.song-new-form-name').focus();
-    return this;
+    var content;
+    if (window.CURRENT_USER) {
+      content = this.template({
+        song: this.model,
+      });
+      this.$el.html(content);
+      this.attachSubviews();
+      this.$('.song-new-form-name').focus();
+      return this;
+    } else {
+      content = JST.please_sign_in ({
+        current_action: "Creating a new song",
+      });
+      this.$el.html(content);
+      return this;
+    }
   }
 });
