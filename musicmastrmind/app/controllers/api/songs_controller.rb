@@ -64,14 +64,20 @@ class Api::SongsController < ApplicationController
   end
 
   def get_collection
-    return Song.all.includes(:artist) if params[:all] 
+    return Song.all.includes(:artist) if params[:all]
     if params[:artist_id]
       return Song.where(artist_id: params[:artist_id]).includes(:artist)
     end
   end
 
   def validate_form_data(form_data)
+    if !logged_in?
+      @errors = ["You must be logged in to create a song"]
+      return false
+    end
     # {"song"=>{"title"=>"Test Song", "artist_name"=>"Test Artist"}, "lines"=>[{"body"=>"first line"}, {"body"=>"second Line"}, {"body"=>"third line"}, {"body"=>"fourth line"}]}
+
+
     song_data = form_data["song"]
     lines_data = form_data["lines"]
     @song = Song.new()
