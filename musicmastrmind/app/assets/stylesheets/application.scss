@@ -80,3 +80,8 @@ textarea {
 .header-image {
   width: 100%;
 }
+
+abbr[title], abbr[data-original-title] {
+    cursor: default;
+    border-bottom: 1px dotted #777777;
+}

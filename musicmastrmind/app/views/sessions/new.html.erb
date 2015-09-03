@@ -8,7 +8,6 @@
   </ul>
 <% end %>
 
-<!-- Style better -->
 <form method="post" action="<%= session_url %>">
 <%= form_token %>
 
@@ -33,37 +32,29 @@
 
 <% if @guest %>
   <script type="text/javascript">
-
     guestLogin =  function(event){
       var that = this;
-
       $username = $('#username_email');
       $password = $('#Password');
       $submitButton = $('.login-button');
-
       $username.val('');
       $password.val('');
-
-      this.slowtype($username, 'guest@pinoir.com', function(){
+      this.slowtype($username, 'guest@musicmastrmind.com', function(){
         that.slowtype($password, 'password', function(){
           $submitButton.click();
         });
       });
     },
-
     slowtype = function($el, word, callback){
-
       var typing = setInterval(function(){
         $el.val( $el.val() + word.slice(0,1) );
         word = word.substr(1);
-
         if (!word){
           clearInterval(typing);
           callback();
         }
       }, 40);
     }
-
     guestLogin();
   </script>
 <% end %>

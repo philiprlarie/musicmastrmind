@@ -36,6 +36,12 @@
           <li><form action = "session/new"
             method = "get"
             class="navbar-form navbar-right">
+            <input type="hidden" name="guest" value="true">
+            <button type="submit" class="btn btn-default">Guest Log In</button>
+          </form></li>
+          <li><form action = "session/new"
+            method = "get"
+            class="navbar-form navbar-right">
             <button type="submit" class="btn btn-default">Log In</button>
           </form></li>
           <li><form action = "users/new"

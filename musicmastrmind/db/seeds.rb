@@ -21,8 +21,8 @@ user4 = User.create({
 })
 user5 = User.create({
   username: "Guest",
-  email: 'guest@gmail.com',
-  password: '!1password'
+  email: 'guest@musicmastrmind.com',
+  password: 'password'
 })
 
 
