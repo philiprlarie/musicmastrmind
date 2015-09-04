@@ -1,36 +1,47 @@
-<h1>Sign In</h1>
+<div class="logging-in centered">
+  <h1>Log In</h1>
 
-<% if flash[:errors] %>
-  <ul class="errors">
-    <% flash[:errors].each do |error| %>
-      <li><%= error %></li>
-    <% end %>
-  </ul>
-<% end %>
+  <% if flash[:errors] %>
+    <ul class="errors">
+      <% flash[:errors].each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  <% end %>
 
-<form method="post" action="<%= session_url %>">
-<%= form_token %>
+  <form method="post" action="<%= session_url %>">
+  <%= form_token %>
+    <div class="input group">
+      <label for="username_email">Username or Email: </label>
+      <input type="text"
+        id="username_email"
+        name="user[username_email]"
+        value="<%= @username_email %>">
+    </div>
 
-  <label for="username_email">Enter your Username or Email: </label>
-  <input type="text"
-    id="username_email"
-    name="user[username_email]"
-    value="<%= @username_email %>">
+    <div class="input group">
+      <label for="Password">Password: </label>
+      <input type="password"
+        id="Password"
+        name="user[password]">
+    </div>
 
-  <label for="Password">Password: </label>
-  <input type="password"
-    id="Password"
-    name="user[password]">
+    <div class="input group">
+      <input type="submit" value="Sign In" class="btn btn-default login-button">
+    </div>
+  </form>
 
-  <input type="submit" value="Sign In" class="login-button">
-</form>
+  <br>
+  <a href="<%= new_user_url %>" class="btn btn-default">Sign Up</a>
+  <a href="/" class="btn btn-default">Back to Site</a>
+  <br>
 
-<a href="<%= new_user_url %>" class="btn btn-default">Sign Up</a>
-<br>
-<a href="/" class="btn btn-default">Back to Site</a>
+  <button type="button"
+    id="guest-log-in"
+    class="btn btn-default">Guest Login</button>
 
 
-<% if @guest %>
+
   <script type="text/javascript">
     guestLogin =  function(event){
       var that = this;
@@ -40,7 +51,7 @@
       $username.val('');
       $password.val('');
       this.slowtype($username, 'guest@musicmastrmind.com', function(){
-        that.slowtype($password, 'password', function(){
+        that.slowtype($password, 'passwordpassword', function(){
           $submitButton.click();
         });
       });
@@ -53,8 +64,16 @@
           clearInterval(typing);
           callback();
         }
-      }, 40);
+      }, 50);
     }
-    guestLogin();
+
+    $("#guest-log-in").on('click', guestLogin.bind(this))
   </script>
-<% end %>
+
+  <% if @guest %>
+    <script type="text/javascript">
+      guestLogin();
+    </script>
+  <% end %>
+
+</div>

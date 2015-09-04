@@ -1,36 +1,50 @@
-<h1>Sign Up</h1>
+<div class="logging-in centered">
+  <h1>Sign Up</h1>
 
-<% if flash[:errors] %>
-  <ul class="errors">
-    <% flash[:errors].each do |error| %>
-      <li><%= error %></li>
-    <% end %>
-  </ul>
-<% end %>
+  <% if flash[:errors] %>
+    <ul class="errors">
+      <% flash[:errors].each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  <% end %>
 
-<form method="post" action="<%= users_url %>">
-  <%= form_token %>
+  <form method="post" action="<%= users_url %>">
+    <%= form_token %>
 
-  <label for="Username">Username: </label>
-  <input type="text"
-    id="Username"
-    name="user[username]"
-    value="<%= @user.username %>">
+    <div class="input group">
+      <label for="Username">Username: </label>
+      <input type="text"
+        id="Username"
+        name="user[username]"
+        value="<%= @user.username %>">
+    </div>
 
-  <label for="email">Email: </label>
-  <input type="text"
-    id="email"
-    name="user[email]"
-    value="<%= @user.email %>">
+    <div class="input group">
+      <label for="email">Email: </label>
+      <input type="text"
+        id="email"
+        name="user[email]"
+        value="<%= @user.email %>">
+    </div>
 
-  <label for="Password">Password: </label>
-  <input type="password"
-    id="Password"
-    name="user[password]">
+    <div class="input group">
+      <label for="Password">Password: </label>
+      <input type="password"
+        id="Password"
+        name="user[password]">
+    </div>
 
-  <input type="submit" value="Sign Up">
-</form>
-
-<br>
-<a href="/" class="btn btn-default">Back to Site</a>
-<a href="<%= new_session_url %>" class="btn btn-default">Sign In</a>
+    <input type="submit" value="Sign Up" class="btn btn-default">
+  </form>
+  <br/>
+  <br/>
+  <a href="/" class="btn btn-default">Back to Site</a>
+  <a href="<%= new_session_url %>" class="btn btn-default">Sign In</a>
+  <br>
+  <form action = "/session/new"
+    method = "get"
+    class="navbar-form navbar-right">
+    <input type="hidden" name="guest" value="true">
+    <button type="submit" class="btn btn-default">Guest Log In</button>
+</div>

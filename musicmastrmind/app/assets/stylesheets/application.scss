@@ -61,6 +61,14 @@ textarea {
   background: #333;
 }
 
+input[type="text"] {
+  background: #333;
+}
+
+input[type="password"] {
+  background: #333;
+}
+
 .navbar {
   margin-bottom: 0;
   border-radius: 0 0 5px 5px;
@@ -84,4 +92,11 @@ textarea {
 abbr[title], abbr[data-original-title] {
     cursor: default;
     border-bottom: 1px dotted #777777;
+}
+
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

@@ -1,3 +1,28 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.logging-in {
+  text-align: center;
+  width: 450px;
+  display: inline-block;
+  position: absolute;
+}
+
+.logging-in label {
+  float: left;
+  margin-bottom: 0;
+}
+
+.logging-in input {
+  float: right;
+}
+
+.logging-in input[type="text"], .logging-in input[type="password"] {
+  float: right;
+  width: 240px;
+}
+
+#guest-log-in {
+  margin-top: 5px;
+}
