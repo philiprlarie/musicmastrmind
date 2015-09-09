@@ -72,6 +72,17 @@ input[type="password"] {
 .navbar {
   margin-bottom: 0;
   border-radius: 0 0 5px 5px;
+  background-color: #BA6ACF;
+  border-color: #000;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    color: #555;
+    background-color: #AD60C2;
+    border-radius: 6px;
+}
+
+.navbar a {
+  color: #141414;
 }
 
 .navbar img {
