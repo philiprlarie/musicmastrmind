@@ -8,7 +8,7 @@
   <!-- - <a href="#/artists/<%= song.escape('artist_id') %>"><%= song.artist().escape('name') %></a> -->
       <a class="song-index-image-link"
          href="#/artists/<%= song.artist().id %>">
-         <% var image_url = song.artist().escape("image_url") || "http://res.cloudinary.com/dnbxm7cx2/image/upload/v1440450454/r8rctpkcwhzwc5swewnv.jpg"; %>
+         <% var image_url = song.escape("image_url") || song.artist().escape("image_url") || "http://res.cloudinary.com/dnbxm7cx2/image/upload/v1440450454/r8rctpkcwhzwc5swewnv.jpg"; %>
          <% image_url = image_url.replace("upload/", "upload/w_200,h_100,c_fill,e_ordered_dither:2/"); %>
          <img src="<%= image_url %>" alt="" />
       </a>
