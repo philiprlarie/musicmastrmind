@@ -59,6 +59,8 @@ MusicMastrMind.Views.SongNew = Backbone.CompositeView.extend({
     var params = this.$(".song-new-form").serializeJSON();
     var view = this;
     this.model.set("form_data", params.input);
+    this.model.set("image_url", params.input.song.image_url);
+    debugger;
     this.model.save({}, {
       success: function() {
         Backbone.history.navigate(

@@ -50,6 +50,7 @@ class Api::SongsController < ApplicationController
       :writer,
       :creator_id,
       :artist_id,
+      :image_url
     )
   end
 
@@ -71,6 +72,7 @@ class Api::SongsController < ApplicationController
   end
 
   def validate_form_data(form_data)
+    debugger
     if !logged_in?
       @errors = ["You must be logged in to create a song"]
       return false
@@ -83,6 +85,7 @@ class Api::SongsController < ApplicationController
     @song = Song.new()
     @song.creator_id = current_user.id
     @song.title = song_data["title"]
+    @song.image_url = song_data["image_url"]
 
     artist = Artist.find_by_name(song_data["artist_name"])
     artist ||= Artist.new({ name: song_data["artist_name"] })
