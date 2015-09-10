@@ -5,8 +5,7 @@
 // Song Show
 .song-primary {
   position: relative;
-  top: -100px;
-  background-color: rgba(20, 20, 20, .8);
+  top: -99px;
   float: left;
   width: 500px;
   border-left: 1px solid #BA6ACF;
@@ -41,6 +40,10 @@
 
 .song-info-header span {
   display: inline-block;
+}
+
+.song-info-header {
+  background-color: rgba(20, 20, 20, .8);
 }
 
 .song-header-title {

@@ -733,7 +733,8 @@ because = Song.create({
   writer: 'Lennon–McCartney',
   creator_id: user1.id,
   artist_id: artist9.id,
-  created_at: 5.days.ago
+  created_at: 5.days.ago,
+  image_url: "http://res.cloudinary.com/dnbxm7cx2/image/upload/v1441919124/beatlesrb_abbey_rd_olwnow.jpg"
 })
 line1 = Line.create({
   body: "Because the world is round it turns me on
@@ -851,7 +852,8 @@ maxwell = Song.create({
   writer: "Lennon–McCartney",
   creator_id: user2.id,
   artist_id: artist9.id,
-  created_at: 3.years.ago
+  created_at: 3.years.ago,
+  image_url: "http://res.cloudinary.com/dnbxm7cx2/image/upload/v1441918899/silver-hammer-427jf122910_uv2xkr.jpg"
 })
 line1 = Line.create({
   body: "Joan was quizzical, studied pataphysical
