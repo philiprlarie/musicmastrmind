@@ -16,6 +16,7 @@ MusicMastrMind.Views.SongNew = Backbone.CompositeView.extend({
   events: {
     "click .song-form-submit": "submit",
     "click .song-line-delete": "deleteLine",
+    "change #imageUrl": "updateImage"
   },
 
   addLine: function () {
@@ -43,6 +44,11 @@ MusicMastrMind.Views.SongNew = Backbone.CompositeView.extend({
     this.model.lines().remove(modelToDelete);
   },
 
+  updateImage: function (event) {
+    this.model.set("image_url", event.target.value);
+    this.render();
+  },
+
 
   submit: function (event) {
     event.preventDefault();
@@ -59,8 +65,6 @@ MusicMastrMind.Views.SongNew = Backbone.CompositeView.extend({
     var params = this.$(".song-new-form").serializeJSON();
     var view = this;
     this.model.set("form_data", params.input);
-    this.model.set("image_url", params.input.song.image_url);
-    debugger;
     this.model.save({}, {
       success: function() {
         Backbone.history.navigate(

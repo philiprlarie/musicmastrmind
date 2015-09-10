@@ -36,8 +36,7 @@
         cloudinary.openUploadWidget({ cloud_name: window.CLOUDINARY_OPTIONS.cloud_name, upload_preset: window.CLOUDINARY_OPTIONS.upload_preset },
           function(error, result) {
             console.log(error, result);
-            $("#imageUrl").val(result[0].url);
-            debugger
+            $("#imageUrl").val(result[0].url).trigger('change');
           });
 
     }, false);

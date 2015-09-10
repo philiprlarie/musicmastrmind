@@ -72,7 +72,6 @@ class Api::SongsController < ApplicationController
   end
 
   def validate_form_data(form_data)
-    debugger
     if !logged_in?
       @errors = ["You must be logged in to create a song"]
       return false
